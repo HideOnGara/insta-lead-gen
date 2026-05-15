@@ -10,17 +10,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "FocuLead — Leads de Instagram con IA" },
+      { title: "FocuLead | Generador de Leads de Instagram con IA" },
       {
         name: "description",
         content:
-          "Encuentra clientes en Instagram con IA. FocuLead analiza perfiles, puntúa leads y genera el primer DM personalizado.",
+          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
       },
-      { property: "og:title", content: "FocuLead — Leads de Instagram con IA" },
+      { property: "og:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
       {
         property: "og:description",
         content:
-          "Encuentra clientes en Instagram con IA. FocuLead analiza perfiles, puntúa leads y genera el primer DM personalizado.",
+          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -29,11 +29,11 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "FocuLead — Leads de Instagram con IA" },
+      { name: "twitter:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
       {
         name: "twitter:description",
         content:
-          "Analiza miles de perfiles de Instagram con IA y genera el primer DM personalizado.",
+          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
       },
       { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
