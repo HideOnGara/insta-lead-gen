@@ -75,9 +75,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "FocuLead — Encuentra clientes en Instagram con IA" },
       { name: "description", content: "FocuLead analiza miles de perfiles de Instagram con IA, puntúa los mejores leads para tu negocio y genera el primer DM personalizado." },
       { name: "author", content: "FocuLead" },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: "FocuLead — Leads de Instagram con IA" },
       { property: "og:description", content: "Analiza, puntúa y contacta a tus mejores leads de Instagram en segundos." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "FocuLead" },
+      { property: "og:locale", content: "es_ES" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
     ],
@@ -85,6 +88,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "FocuLead",
+          url: "https://foculead.com",
+          email: "hola@foculead.com",
+          founder: { "@type": "Person", name: "Amaya Oses Relloso" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Madrid",
+            addressCountry: "ES",
+          },
+        }),
       },
     ],
   }),
