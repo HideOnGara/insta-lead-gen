@@ -1,0 +1,14 @@
+# FocuLead
+
+> FocuLead es una herramienta SaaS que encuentra clientes en Instagram con IA: analiza perfiles públicos, puntúa los mejores leads y genera el primer DM personalizado.
+
+## Pages
+
+- [Inicio](/): Cómo funciona FocuLead, para quién es, precios y preguntas frecuentes.
+
+## Optional
+
+- [Iniciar sesión](https://app.foculead.com/login): Acceso a la aplicación.
+- [Aviso Legal](https://app.foculead.com/legal)
+- [Política de Privacidad](https://app.foculead.com/privacy)
+- [Términos de Servicio](https://app.foculead.com/terms)
