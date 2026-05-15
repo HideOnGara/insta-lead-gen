@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import logoUrl from "@/assets/foculead-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -141,8 +142,18 @@ function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="/" className="text-base font-semibold tracking-tight text-zinc-100">
-          FocuLead
+        <a
+          href="/"
+          className="flex items-center gap-2 text-base font-semibold tracking-tight text-zinc-100"
+        >
+          <img
+            src={logoUrl}
+            alt="FocuLead"
+            width={28}
+            height={28}
+            className="h-7 w-7"
+          />
+          <span>FocuLead</span>
         </a>
         <a
           href={LOGIN_URL}
@@ -434,7 +445,17 @@ function Footer() {
     <footer className="bg-zinc-950">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <div className="text-base font-semibold text-zinc-100">FocuLead</div>
+          <div className="flex items-center gap-2 text-base font-semibold text-zinc-100">
+            <img
+              src={logoUrl}
+              alt="FocuLead"
+              width={24}
+              height={24}
+              loading="lazy"
+              className="h-6 w-6"
+            />
+            <span>FocuLead</span>
+          </div>
           <p className="mt-2 max-w-md text-xs text-zinc-400">
             © 2026 FocuLead — Amaya Oses Relloso · NIF 73418483E · Madrid
           </p>
