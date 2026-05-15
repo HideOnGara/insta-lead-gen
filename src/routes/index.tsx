@@ -113,6 +113,11 @@ export const Route = createFileRoute("/")({
 
 const LOGIN_URL = "https://app.foculead.com/login";
 
+function signupUrl(plan: string) {
+  const next = encodeURIComponent(`/?checkout=${plan}`);
+  return `${LOGIN_URL}?mode=signup&next=${next}`;
+}
+
 function CheckIcon() {
   return (
     <svg
@@ -259,6 +264,7 @@ type Plan = {
   features: string[];
   cta: string;
   popular?: boolean;
+  plan: string | null;
 };
 
 function Pricing() {
@@ -268,6 +274,7 @@ function Pricing() {
       price: "0€",
       features: ["100 créditos/mes", "1 usuario", "Perfecto para probar"],
       cta: "Empieza gratis",
+      plan: null,
     },
     {
       name: "Starter",
@@ -275,12 +282,14 @@ function Pricing() {
       features: ["2.000 créditos/mes", "Hasta 3 usuarios", "Búsquedas programadas"],
       cta: "Elegir Starter",
       popular: true,
+      plan: "starter",
     },
     {
       name: "Pro",
       price: "79€",
       features: ["6.000 créditos/mes", "Hasta 10 usuarios", "Todo lo de Starter"],
       cta: "Elegir Pro",
+      plan: "pro",
     },
     {
       name: "Business",
@@ -291,6 +300,7 @@ function Pricing() {
         "Para equipos y agencias",
       ],
       cta: "Elegir Business",
+      plan: "business",
     },
   ];
   return (
@@ -329,7 +339,7 @@ function Pricing() {
                 ))}
               </ul>
               <a
-                href={LOGIN_URL}
+                href={p.plan ? signupUrl(p.plan) : LOGIN_URL}
                 className={
                   "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-colors " +
                   (p.popular
