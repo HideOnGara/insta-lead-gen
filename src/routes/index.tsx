@@ -16,6 +16,97 @@ export const Route = createFileRoute("/")({
         content:
           "Encuentra clientes en Instagram con IA. FocuLead analiza perfiles, puntúa leads y genera el primer DM personalizado.",
       },
+      { property: "og:title", content: "FocuLead — Leads de Instagram con IA" },
+      {
+        property: "og:description",
+        content:
+          "Encuentra clientes en Instagram con IA. FocuLead analiza perfiles, puntúa leads y genera el primer DM personalizado.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "FocuLead — Leads de Instagram con IA" },
+      {
+        name: "twitter:description",
+        content:
+          "Analiza miles de perfiles de Instagram con IA y genera el primer DM personalizado.",
+      },
+      { name: "twitter:image", content: "/og-image.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "FocuLead",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description:
+            "Herramienta SaaS que encuentra leads cualificados en Instagram con IA y genera el primer mensaje personalizado.",
+          offers: [
+            { "@type": "Offer", name: "Free", price: "0", priceCurrency: "EUR" },
+            { "@type": "Offer", name: "Starter", price: "29", priceCurrency: "EUR" },
+            { "@type": "Offer", name: "Pro", price: "79", priceCurrency: "EUR" },
+            { "@type": "Offer", name: "Business", price: "199", priceCurrency: "EUR" },
+          ],
+          provider: { "@type": "Organization", name: "FocuLead" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "¿Qué es un crédito?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Cada perfil que la IA analiza consume 1 crédito. Generar el DM consume 1 crédito adicional.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿De dónde vienen los leads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "De perfiles públicos de Instagram. FocuLead no accede a datos privados.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿Puedo cancelar cuando quiera?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí. Sin permanencia, sin letra pequeña.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿FocuLead envía los DMs por mí?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. FocuLead genera el mensaje; tú decides cuándo y cómo enviarlo.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿Funciona para cualquier nicho?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sí. Puedes buscar por hashtag, por cuentas referentes o por ubicación y nicho.",
+              },
+            },
+          ],
+        }),
+      },
     ],
   }),
 });
