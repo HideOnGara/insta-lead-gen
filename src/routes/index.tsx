@@ -172,7 +172,7 @@ function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
             href={LOGIN_URL}
-            className="inline-flex items-center justify-center rounded-md bg-zinc-100 px-6 py-3 text-base font-medium text-zinc-900 transition-colors hover:bg-white"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Empieza gratis →
           </a>
@@ -315,11 +315,11 @@ function Pricing() {
               key={p.name}
               className={
                 "relative flex flex-col rounded-xl border bg-zinc-900/60 p-6 " +
-                (p.popular ? "border-zinc-600" : "border-zinc-800")
+                (p.popular ? "border-primary" : "border-zinc-800")
               }
             >
               {p.popular && (
-                <span className="absolute -top-2.5 left-6 rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-900">
+                <span className="absolute -top-2.5 left-6 rounded-full bg-primary px-2.5 py-0.5 text-xs font-medium text-primary-foreground">
                   Más popular
                 </span>
               )}
@@ -343,7 +343,7 @@ function Pricing() {
                 className={
                   "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-colors " +
                   (p.popular
-                    ? "bg-zinc-100 text-zinc-900 hover:bg-white"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "border border-zinc-800 text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900")
                 }
               >
@@ -420,7 +420,7 @@ function FinalCTA() {
         </h2>
         <a
           href={LOGIN_URL}
-          className="mt-10 inline-flex items-center justify-center rounded-md bg-zinc-100 px-6 py-3 text-base font-medium text-zinc-900 transition-colors hover:bg-white"
+          className="mt-10 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Crear cuenta gratis →
         </a>
