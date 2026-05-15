@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image", content: "https://foculead.com/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
         content:
           "Analiza miles de perfiles de Instagram con IA y genera el primer DM personalizado.",
       },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -213,7 +213,7 @@ function HowItWorks() {
               key={s.n}
               className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6"
             >
-              <div className="text-sm font-mono text-zinc-500">{s.n}</div>
+              <div className="text-sm font-mono text-zinc-400">{s.n}</div>
               <h3 className="mt-4 text-lg font-medium text-zinc-100">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{s.body}</p>
             </div>
@@ -318,7 +318,7 @@ function Pricing() {
                 <span className="text-4xl font-semibold tracking-tight text-zinc-100">
                   {p.price}
                 </span>
-                <span className="text-sm text-zinc-500">/mes</span>
+                <span className="text-sm text-zinc-400">/mes</span>
               </div>
               <ul className="mt-6 space-y-3 text-sm text-zinc-300">
                 {p.features.map((f) => (
@@ -425,7 +425,7 @@ function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="text-base font-semibold text-zinc-100">FocuLead</div>
-          <p className="mt-2 max-w-md text-xs text-zinc-500">
+          <p className="mt-2 max-w-md text-xs text-zinc-400">
             © 2026 FocuLead — Amaya Oses Relloso · NIF 73418483E · Madrid
           </p>
         </div>
