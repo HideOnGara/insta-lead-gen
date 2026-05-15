@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
-      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image", content: "https://foculead.com/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
         content:
           "Analiza miles de perfiles de Instagram con IA y genera el primer DM personalizado.",
       },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
