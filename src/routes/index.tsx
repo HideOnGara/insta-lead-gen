@@ -671,6 +671,169 @@ function ProblemSolution() {
   );
 }
 
+function LeadIntelligence() {
+  const signals = [
+    { label: "Engagement alto", value: "4.0%" },
+    { label: "Nicho relevante", value: "Branding & Creative" },
+    { label: "Actividad reciente", value: "Publicó hace 2 días" },
+    { label: "Bio optimizada", value: "Describe claramente su servicio" },
+    { label: "Potencial B2B", value: "Alta probabilidad de compra" },
+    { label: "Audiencia activa", value: "553 publicaciones" },
+  ];
+  const blocks = [
+    {
+      title: "No solo buscamos perfiles.",
+      body: "FocuLead identifica cuentas que realmente encajan con tu cliente ideal.",
+    },
+    {
+      title: "La IA puntúa cada lead.",
+      body: "Analizamos engagement, nicho, actividad, bio, señales comerciales y relevancia.",
+    },
+    {
+      title: "Solo ves oportunidades reales.",
+      body: "Evita perder horas revisando perfiles irrelevantes o escribiendo mensajes genéricos.",
+    },
+    {
+      title: "Mensajes contextualizados.",
+      body: "Cada DM se genera usando información real del perfil para aumentar respuestas.",
+    },
+  ];
+  return (
+    <section className="border-b border-zinc-800 bg-zinc-950">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            Así encuentra FocuLead los mejores leads
+          </h2>
+          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+            La IA analiza señales reales de negocio para detectar perfiles con
+            alta probabilidad de convertirse en clientes.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-8 md:grid-cols-2 md:gap-10">
+          {/* Left: Lead Intelligence card */}
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-colors duration-200 hover:border-zinc-700 sm:p-8">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[12px] font-medium text-zinc-300">
+                  C
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-[13.5px] font-medium text-zinc-100">
+                    @creativeworks.dk
+                  </p>
+                  <p className="truncate text-[11.5px] text-zinc-500">
+                    Branding & Creative
+                  </p>
+                </div>
+              </div>
+              <span className="rounded-md border border-zinc-800 bg-zinc-950 px-2 py-1 text-[10px] uppercase tracking-wider text-zinc-500">
+                Lead intel
+              </span>
+            </div>
+
+            {/* Score */}
+            <div className="mt-6 border-t border-zinc-800 pt-5">
+              <div className="flex items-baseline justify-between">
+                <span className="text-[10.5px] font-medium uppercase tracking-wider text-zinc-500">
+                  Score IA
+                </span>
+                <span className="text-[10.5px] text-emerald-400">High quality</span>
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-4xl font-semibold tracking-tight text-zinc-100 tabular-nums sm:text-5xl">
+                  77
+                </span>
+                <span className="text-sm text-zinc-500">/100</span>
+              </div>
+              <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
+                <div className="h-full w-[77%] rounded-full bg-emerald-500" />
+              </div>
+            </div>
+
+            {/* Signals */}
+            <div className="mt-6 border-t border-zinc-800 pt-5">
+              <p className="text-[10.5px] font-medium uppercase tracking-wider text-zinc-500">
+                Señales analizadas
+              </p>
+              <ul className="mt-3 divide-y divide-zinc-800/80">
+                {signals.map((s) => (
+                  <li
+                    key={s.label}
+                    className="flex items-center justify-between gap-3 py-2.5 transition-colors duration-200 hover:bg-zinc-900/40"
+                  >
+                    <span className="flex min-w-0 items-center gap-2">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="shrink-0 text-emerald-400"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span className="truncate text-[12.5px] text-zinc-300">
+                        {s.label}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-[12px] text-zinc-400 tabular-nums">
+                      {s.value}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-5 flex items-center justify-between border-t border-zinc-800 pt-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[10.5px] text-zinc-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
+                Analizado con IA
+              </span>
+              <span className="text-[10.5px] text-zinc-600 tabular-nums">
+                hace 4 min
+              </span>
+            </div>
+          </div>
+
+          {/* Right: explanatory blocks */}
+          <ul className="flex flex-col">
+            {blocks.map((b, i) => (
+              <li
+                key={b.title}
+                className={
+                  "group py-5 transition-colors duration-200 " +
+                  (i !== 0 ? "border-t border-zinc-800" : "")
+                }
+              >
+                <div className="flex items-start gap-4">
+                  <span className="mt-1 font-mono text-[11px] text-zinc-600 tabular-nums">
+                    0{i + 1}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-base font-medium text-zinc-100 transition-colors duration-200 group-hover:text-white">
+                      {b.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">
+                      {b.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ForWho() {
   const items = [
     "Agencias de marketing que prospectan en Instagram",
@@ -928,6 +1091,7 @@ function Index() {
         <ProductPreview />
         <ProblemSolution />
         <HowItWorks />
+        <LeadIntelligence />
         <ForWho />
         <Pricing />
         <FAQ />
