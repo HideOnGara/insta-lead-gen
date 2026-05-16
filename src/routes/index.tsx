@@ -169,31 +169,37 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-zinc-800">
-      <div className="mx-auto max-w-5xl px-6 pt-24 pb-28 text-center sm:pt-32 sm:pb-36">
-        <h1 className="text-4xl font-semibold tracking-tight text-zinc-100 sm:text-6xl md:text-7xl">
-          Encuentra clientes en Instagram con IA.
-          <br />
-          <span className="text-zinc-500">Sin buscar a mano.</span>
+      <div className="mx-auto max-w-3xl px-6 pt-28 pb-32 text-center sm:pt-36 sm:pb-40 animate-fade-in">
+        <div className="flex justify-center">
+          <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300">
+            Prospección con IA para Instagram
+          </span>
+        </div>
+        <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold tracking-tight leading-[1.05] text-zinc-100 sm:text-5xl md:text-6xl">
+          <span className="block text-zinc-100">Instagram tiene tus clientes.</span>
+          <span className="block text-[#84cc16]">FocuLead los encuentra.</span>
         </h1>
-        <p className="mx-auto mt-8 max-w-2xl text-base text-zinc-400 sm:text-lg">
-          FocuLead analiza miles de perfiles públicos, puntúa los mejores leads
-          para tu negocio y genera el primer mensaje personalizado — listo para
-          enviar en segundos.
+        <p className="mx-auto mt-6 max-w-xl text-base text-zinc-400 sm:text-lg">
+          Encuentra leads cualificados, priorízalos con IA y genera mensajes
+          personalizados en segundos.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
             href={LOGIN_URL}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:-translate-y-0.5"
           >
             Empieza gratis →
           </a>
           <a
             href="#como-funciona"
-            className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+            className="text-sm text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
           >
-            Ver cómo funciona ↓
+            Ver demo ↓
           </a>
         </div>
+        <p className="mt-5 text-xs text-zinc-500">
+          100 créditos gratis · No requiere tarjeta
+        </p>
       </div>
     </section>
   );
