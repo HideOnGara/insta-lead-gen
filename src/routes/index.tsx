@@ -986,12 +986,15 @@ function Pricing() {
           Precios claros. Sin letra pequeña.
         </h2>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {plans.map((p) => (
-            <div
+          {plans.map((p, i) => (
+            <Reveal
               key={p.name}
+              delay={i * 70}
               className={
-                "relative flex flex-col rounded-xl border bg-zinc-900/60 p-6 " +
-                (p.popular ? "border-primary" : "border-zinc-800")
+                "group relative flex flex-col rounded-xl border bg-zinc-900/60 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)] " +
+                (p.popular
+                  ? "border-primary hover:shadow-[0_20px_50px_-20px_rgba(132,204,22,0.35)]"
+                  : "border-zinc-800 hover:border-zinc-700")
               }
             >
               {p.popular && (
@@ -1017,15 +1020,15 @@ function Pricing() {
               <a
                 href={p.plan ? signupUrl(p.plan) : LOGIN_URL}
                 className={
-                  "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-colors " +
+                  "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-out hover:-translate-y-0.5 " +
                   (p.popular
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/95 hover:shadow-[0_8px_20px_-8px_rgba(132,204,22,0.5)]"
                     : "border border-zinc-800 text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900")
                 }
               >
                 {p.cta}
               </a>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
