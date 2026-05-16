@@ -601,16 +601,7 @@ function LeadDetailShowcase() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
         <Reveal>
           <ProductFrame label="app.foculead.com / lead">
-            <div className="relative h-[560px] w-full overflow-hidden sm:h-[640px]">
-              <img
-                src={productLeadDetailUrl}
-                alt="Vista de detalle de un lead en FocuLead con bio, score, engagement y mensaje de outreach"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-x-0 top-0 w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
-            </div>
+            <LeadDetailMock />
           </ProductFrame>
         </Reveal>
         <Reveal delay={80}>
@@ -686,16 +677,7 @@ function AnalyticsShowcase() {
 
         <Reveal delay={120} className="mt-14">
           <ProductFrame label="app.foculead.com / analytics">
-            <div className="relative w-full overflow-hidden bg-zinc-950">
-              <img
-                src={productAnalyticsUrl}
-                alt="Pantalla de analytics de FocuLead con funnel de conversión, velocidad y rendimiento por nicho"
-                loading="lazy"
-                decoding="async"
-                className="block w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-950/90 to-transparent" />
-            </div>
+            <AnalyticsMock />
           </ProductFrame>
         </Reveal>
       </div>
