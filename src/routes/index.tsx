@@ -200,124 +200,325 @@ function Hero() {
 }
 
 function ProductPreview() {
-  const leads = [
-    { user: "@clinicadentalmadrid", niche: "Clínica dental · Madrid", score: 92 },
-    { user: "@sonrisaperfecta", niche: "Estética dental · Madrid", score: 87 },
-    { user: "@dentalcenter_mad", niche: "Ortodoncia · Madrid", score: 81 },
-    { user: "@drsanchezdental", niche: "Odontología · Madrid", score: 76 },
+  const nav = [
+    { label: "Leads", count: "526", active: true },
+    { label: "Buscar leads", count: null, active: false },
+    { label: "Mensajes", count: "12", active: false },
+    { label: "Cuentas", count: null, active: false },
+    { label: "Hashtags", count: null, active: false },
+    { label: "Analytics", count: null, active: false },
+    { label: "Ajustes", count: null, active: false },
   ];
-  const menu = ["Dashboard", "Leads", "Campañas", "Créditos", "Ajustes"];
+  const rows = [
+    {
+      initial: "C",
+      user: "@coach.himjain",
+      bio: "Health Coach | Wellness Educator. Helping Gujarati people improve weight…",
+      niche: "Coaching & Education",
+      eng: "17.5%",
+      engTone: "warn",
+      score: 79,
+      msg: "Hey! Just scrolled through your content on hormonal bal…",
+    },
+    {
+      initial: "C",
+      user: "@creativeworks.dk",
+      bio: "A creative space for building your brand. Create with THE STUDIO or THE …",
+      niche: "Branding & Creative",
+      eng: "4.0%",
+      engTone: "warn",
+      score: 77,
+      msg: "Hey! Love how you're weaving emotion into branding with…",
+    },
+    {
+      initial: "E",
+      user: "@errantiestudioinmobiliario",
+      bio: "Los creadores del Cyber Week Inmobiliario · 20% OFF en alquileres y…",
+      niche: "Real Estate & Architecture",
+      eng: "1.9%",
+      engTone: "muted",
+      score: 77,
+      msg: "Hola! Vi que están arrasando con el Cyber Week Inmobiliari…",
+    },
+    {
+      initial: "L",
+      user: "@liderazgohostelero",
+      bio: "Clientes = personas · Tu equipo = personas · Si entiendes a las personas…",
+      niche: "Food & Hospitality",
+      eng: "41.7%",
+      engTone: "good",
+      score: 77,
+      msg: "Hola! Acabo de ver tu contenido sobre liderazgo en hostele…",
+    },
+    {
+      initial: "D",
+      user: "@dr.marcelo.silvaa",
+      bio: "Advogado com atuação nas áreas Cível, Criminal e de Família. Professor d…",
+      niche: "Finance & Legal",
+      eng: "3.5%",
+      engTone: "warn",
+      score: 76,
+      msg: "Hola! Vi que trabajas temas de familia y sucesiones, y eso…",
+    },
+    {
+      initial: "F",
+      user: "@falconi.vlabs",
+      bio: "AI Content Creator · Elite Creator: Kling AI · CPP: Invideo | Open…",
+      niche: "Coaching & Education",
+      eng: "61.0%",
+      engTone: "good",
+      score: 76,
+      msg: "Hola! Vi que llevas un año apostando fuerte por la IA y la…",
+    },
+    {
+      initial: "N",
+      user: "@nutrifit.mom",
+      bio: "Timișoara · Ajut MAMELE și FEMEILE OCUPATE să se mențină în formă! DM d…",
+      niche: "Health & Wellness",
+      eng: "3.9%",
+      engTone: "warn",
+      score: 76,
+      msg: "Hey! Love how you're helping busy moms stay fit without…",
+    },
+    {
+      initial: "A",
+      user: "@abogadowolfgang_gwraices",
+      bio: "Blindamos tu inversión inmobiliaria en Aragua · Compra y vende …",
+      niche: "Real Estate & Architecture",
+      eng: "8.3%",
+      engTone: "warn",
+      score: 76,
+      msg: "Hola! Vi que blindas inversiones inmobiliarias en Aragua y…",
+    },
+  ];
+  const engClass = (tone: string) =>
+    tone === "good"
+      ? "bg-emerald-500/10 text-emerald-400 ring-1 ring-inset ring-emerald-500/20"
+      : tone === "warn"
+        ? "bg-amber-500/10 text-amber-400 ring-1 ring-inset ring-amber-500/20"
+        : "bg-zinc-800 text-zinc-400 ring-1 ring-inset ring-zinc-700/60";
+
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
+        <div className="animate-in fade-in slide-in-from-bottom-4 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 duration-700">
           {/* window chrome */}
-          <div className="flex items-center gap-1.5 border-b border-zinc-800 px-4 py-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+          <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+            </div>
+            <div className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[11px] text-zinc-500 sm:flex">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              app.foculead.com/leads
+            </div>
+            <span className="w-12" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-12">
+
+          <div className="grid grid-cols-1 md:grid-cols-[210px_1fr]">
             {/* Sidebar */}
-            <aside className="border-b border-zinc-800 p-5 md:col-span-3 md:border-b-0 md:border-r">
-              <div className="flex items-center gap-2">
-                <img src={logoUrl} alt="" width={20} height={20} className="h-5 w-5" />
-                <span className="text-sm font-semibold text-zinc-100">FocuLead</span>
+            <aside className="hidden flex-col justify-between border-r border-zinc-800 bg-zinc-950 md:flex">
+              <div>
+                <div className="flex items-center gap-2 border-b border-zinc-800 px-4 py-3.5">
+                  <img src={logoUrl} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+                  <div className="flex flex-col leading-tight">
+                    <span className="text-[13px] font-semibold text-zinc-100">FocuLead</span>
+                    <span className="text-[10px] text-zinc-500">Workspace</span>
+                  </div>
+                </div>
+                <nav className="px-2 py-3">
+                  <p className="px-2 pb-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-600">
+                    Pipeline
+                  </p>
+                  {nav.map((n) => (
+                    <div
+                      key={n.label}
+                      className={
+                        "mt-0.5 flex items-center justify-between rounded-md px-2 py-1.5 text-[13px] transition-colors duration-200 " +
+                        (n.active
+                          ? "bg-zinc-800/80 text-zinc-100"
+                          : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200")
+                      }
+                    >
+                      <span className="flex items-center gap-2">
+                        <span
+                          className={
+                            "h-1.5 w-1.5 rounded-full " +
+                            (n.active ? "bg-lime-400" : "bg-zinc-700")
+                          }
+                        />
+                        {n.label}
+                      </span>
+                      {n.count && (
+                        <span className="rounded bg-zinc-900 px-1.5 text-[10px] text-zinc-500">
+                          {n.count}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </nav>
               </div>
-              <nav className="mt-6 flex flex-row gap-1 overflow-x-auto md:flex-col">
-                {menu.map((m, i) => (
-                  <span
-                    key={m}
-                    className={
-                      "shrink-0 rounded-md px-3 py-2 text-sm " +
-                      (i === 1
-                        ? "bg-zinc-800 text-zinc-100"
-                        : "text-zinc-400")
-                    }
-                  >
-                    {m}
-                  </span>
-                ))}
-              </nav>
+              <div className="m-3 rounded-lg border border-zinc-800 bg-zinc-900/60 p-3">
+                <div className="flex items-center justify-between text-[11px] text-zinc-400">
+                  <span>Créditos · Starter</span>
+                  <span className="text-zinc-300">7.352 / 20.000</span>
+                </div>
+                <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800">
+                  <div className="h-full w-[37%] rounded-full bg-lime-400" />
+                </div>
+              </div>
             </aside>
 
-            {/* Center: search + leads */}
-            <div className="border-b border-zinc-800 p-5 md:col-span-6 md:border-b-0 md:border-r md:p-6">
-              <div className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2.5">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-zinc-500"
-                  aria-hidden="true"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m20 20-3.5-3.5" />
-                </svg>
-                <span className="text-sm text-zinc-200">Dentistas Madrid</span>
+            {/* Main */}
+            <div className="min-w-0">
+              {/* Header */}
+              <div className="border-b border-zinc-800 px-5 py-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <h3 className="text-base font-semibold text-zinc-100">Leads</h3>
+                    <p className="mt-0.5 text-[12px] text-zinc-500">
+                      Gestiona y filtra los leads captados con IA desde Instagram.
+                    </p>
+                  </div>
+                  <div className="hidden items-center gap-2 sm:flex">
+                    <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1.5 text-[12px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                      Exportar
+                    </button>
+                    <button className="rounded-md bg-zinc-100 px-2.5 py-1.5 text-[12px] font-medium text-zinc-900 transition-colors duration-200 hover:bg-white">
+                      + Nuevo lead
+                    </button>
+                  </div>
+                </div>
+
+                {/* Tabs + badges row */}
+                <div className="mt-4 flex flex-wrap items-center gap-1.5">
+                  <span className="rounded-full bg-lime-400/15 px-2.5 py-1 text-[11px] font-medium text-lime-300 ring-1 ring-inset ring-lime-400/30">
+                    All · 526
+                  </span>
+                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400 hover:text-zinc-200">New · 526</span>
+                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Contacted · 0</span>
+                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Replied · 0</span>
+                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Converted · 0</span>
+                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Skipped · 0</span>
+                </div>
+
+                {/* Filters row */}
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <div className="flex min-w-[180px] flex-1 items-center gap-2 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-500" aria-hidden="true">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m20 20-3.5-3.5" />
+                    </svg>
+                    <span className="text-[12px] text-zinc-500">Buscar usuario, bio, nicho…</span>
+                  </div>
+                  <button className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[12px] text-zinc-300">
+                    Todos los nichos
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <span className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> High quality
+                  </span>
+                  <span className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400 lg:inline-flex">
+                    <span className="h-1.5 w-1.5 rounded-full bg-lime-400" /> Listos para comprar
+                  </span>
+                  <span className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400 lg:inline-flex">
+                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-500" /> Archived
+                  </span>
+                </div>
               </div>
-              <div className="mt-5 flex items-center justify-between">
-                <p className="text-xs uppercase tracking-wider text-zinc-500">
-                  Leads encontrados
-                </p>
-                <p className="text-xs text-zinc-500">128 perfiles</p>
+
+              {/* Desktop table */}
+              <div className="hidden md:block">
+                <div className="grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 border-b border-zinc-800 bg-zinc-900/40 px-5 py-2 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+                  <span>Username</span>
+                  <span>Bio</span>
+                  <span>Nicho</span>
+                  <span>Engagement</span>
+                  <span>Score</span>
+                  <span>Message</span>
+                  <span className="text-right">Action</span>
+                </div>
+                <ul className="divide-y divide-zinc-800/80">
+                  {rows.map((r) => (
+                    <li
+                      key={r.user}
+                      className="grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/40"
+                    >
+                      <div className="flex min-w-0 items-center gap-2">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[10px] font-medium text-zinc-300">
+                          {r.initial}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="truncate text-[12.5px] font-medium text-zinc-100">{r.user}</p>
+                          <p className="truncate text-[10.5px] text-zinc-500">New · 2d</p>
+                        </div>
+                      </div>
+                      <p className="truncate text-[12px] text-zinc-400">{r.bio}</p>
+                      <span className="inline-flex w-fit items-center rounded-md bg-zinc-900 px-1.5 py-0.5 text-[10.5px] text-zinc-300 ring-1 ring-inset ring-zinc-800">
+                        {r.niche}
+                      </span>
+                      <span className={"inline-flex w-fit items-center rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
+                        {r.eng}
+                      </span>
+                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        {r.score}/100
+                      </span>
+                      <p className="truncate text-[12px] text-zinc-400">{r.msg}</p>
+                      <div className="flex justify-end gap-1.5">
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                          Open
+                        </button>
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                          Copy
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center justify-between border-t border-zinc-800 px-5 py-2.5 text-[11px] text-zinc-500">
+                  <span>Mostrando 8 de 526 leads</span>
+                  <div className="flex items-center gap-2">
+                    <span className="rounded border border-zinc-800 px-1.5 py-0.5 text-zinc-400">⌘K</span>
+                    <span>Atajos</span>
+                  </div>
+                </div>
               </div>
-              <ul className="mt-3 divide-y divide-zinc-800 rounded-lg border border-zinc-800">
-                {leads.map((l, i) => (
-                  <li
-                    key={l.user}
-                    className={
-                      "flex items-center gap-3 px-4 py-3 " +
-                      (i === 0 ? "bg-zinc-800/40" : "")
-                    }
-                  >
-                    <div className="h-9 w-9 shrink-0 rounded-full bg-zinc-800" />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-medium text-zinc-100">
-                        {l.user}
-                      </p>
-                      <p className="truncate text-xs text-zinc-400">{l.niche}</p>
+
+              {/* Mobile cards */}
+              <ul className="divide-y divide-zinc-800 md:hidden">
+                {rows.slice(0, 5).map((r) => (
+                  <li key={r.user} className="px-4 py-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex min-w-0 items-center gap-2">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[11px] font-medium text-zinc-300">
+                          {r.initial}
+                        </span>
+                        <p className="truncate text-[13px] font-medium text-zinc-100">{r.user}</p>
+                      </div>
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        {r.score}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2 py-1">
-                      <span className="h-1.5 w-1.5 rounded-full bg-zinc-100" />
-                      <span className="text-xs font-medium text-zinc-200">
-                        {l.score}
+                    <p className="mt-1.5 line-clamp-2 text-[11.5px] text-zinc-400">{r.bio}</p>
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                      <span className="rounded-md bg-zinc-900 px-1.5 py-0.5 text-[10.5px] text-zinc-300 ring-1 ring-inset ring-zinc-800">
+                        {r.niche}
+                      </span>
+                      <span className={"rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
+                        {r.eng}
                       </span>
                     </div>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Right: DM card */}
-            <div className="p-5 md:col-span-3 md:p-6">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-zinc-100">
-                  DM generado por IA
-                </p>
-              </div>
-              <div className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950 p-4">
-                <div className="flex items-center gap-2">
-                  <div className="h-6 w-6 rounded-full bg-zinc-800" />
-                  <span className="text-xs text-zinc-400">@clinicadentalmadrid</span>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
-                  Hola Marta, he visto vuestro perfil y creo que podríamos
-                  ayudaros a conseguir más reservas usando automatización y
-                  captación local…
-                </p>
-                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-2.5 py-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-100" />
-                  <span className="text-[11px] text-zinc-400">
-                    Generado con Claude
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
