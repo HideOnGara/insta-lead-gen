@@ -1411,11 +1411,10 @@ function Index() {
       <main>
         <Hero />
         <SocialProof />
-        <ProductPreview />
+        <ProductHero />
+        <OutboundShowcase />
         <Outcomes />
-        <ProblemSolution />
         <HowItWorks />
-        <LeadIntelligence />
         <ForWho />
         <Pricing />
         <FAQ />
