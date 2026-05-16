@@ -376,331 +376,82 @@ function Outcomes() {
   );
 }
 
-function ProductPreview() {
-  const nav = [
-    { label: "Leads", count: "526", active: true },
-    { label: "Buscar leads", count: null, active: false },
-    { label: "Mensajes", count: "12", active: false },
-    { label: "Cuentas", count: null, active: false },
-    { label: "Hashtags", count: null, active: false },
-    { label: "Analytics", count: null, active: false },
-    { label: "Ajustes", count: null, active: false },
-  ];
-  const rows = [
-    {
-      initial: "S",
-      user: "@studiofina.co",
-      bio: "Creative studio for modern wellness & lifestyle brands. Identity · Web · Launch…",
-      niche: "Branding & Creative",
-      eng: "5.2%",
-      engTone: "warn",
-      score: 82,
-      msg: "Hola! Vi vuestro último rebrand y me encantó el enfoque ed…",
-    },
-    {
-      initial: "G",
-      user: "@growmetriclab",
-      bio: "Helping local brands grow through paid acquisition. Meta & Google Ads…",
-      niche: "Marketing & Growth",
-      eng: "4.0%",
-      engTone: "warn",
-      score: 79,
-      msg: "Hey! Vi vuestro enfoque sobre captación local y creo que p…",
-    },
-    {
-      initial: "N",
-      user: "@northpeakmedia",
-      bio: "Brand strategy for premium service businesses. Studio remoto · EU + LATAM…",
-      niche: "Branding & Creative",
-      eng: "2.1%",
-      engTone: "muted",
-      score: 77,
-      msg: "Hola! Me llamó la atención cómo posicionáis a vuestros clien…",
-    },
-    {
-      initial: "E",
-      user: "@elevahub",
-      bio: "Consultoría de operaciones para restaurantes y grupos hosteleros…",
-      niche: "Food & Hospitality",
-      eng: "11.4%",
-      engTone: "good",
-      score: 77,
-      msg: "Hola! Vi vuestro contenido sobre eficiencia en sala y me e…",
-    },
-    {
-      initial: "L",
-      user: "@lumenstrategy",
-      bio: "Asesoría legal y fiscal para empresas en crecimiento. España · Portugal…",
-      niche: "Finance & Legal",
-      eng: "3.5%",
-      engTone: "warn",
-      score: 76,
-      msg: "Hola! Vi vuestro contenido sobre fiscalidad para PyMEs y p…",
-    },
-    {
-      initial: "B",
-      user: "@brandnexa",
-      bio: "Consultoría de automatización para empresas B2B. IA · CRM · Workflows…",
-      niche: "Tech & Automation",
-      eng: "8.7%",
-      engTone: "good",
-      score: 76,
-      msg: "Hola! Vi vuestro enfoque sobre automatización comercial y …",
-    },
-    {
-      initial: "U",
-      user: "@urbanwellness.co",
-      bio: "Estudio de bienestar urbano · Programas corporativos y retiros boutique…",
-      niche: "Health & Wellness",
-      eng: "3.9%",
-      engTone: "warn",
-      score: 76,
-      msg: "Hola! Me ha gustado mucho vuestro programa corporativo y …",
-    },
-    {
-      initial: "C",
-      user: "@craftedgrowth",
-      bio: "Growth partners para SaaS y agencias. Estrategia, contenido y outbound…",
-      niche: "Marketing & Growth",
-      eng: "6.8%",
-      engTone: "warn",
-      score: 76,
-      msg: "Hola! Vi vuestro último caso de outbound para SaaS y me en…",
-    },
-  ];
-  const engClass = (tone: string) =>
-    tone === "good"
-      ? "bg-emerald-500/10 text-emerald-400 ring-1 ring-inset ring-emerald-500/20"
-      : tone === "warn"
-        ? "bg-amber-500/10 text-amber-400 ring-1 ring-inset ring-amber-500/20"
-        : "bg-zinc-800 text-zinc-400 ring-1 ring-inset ring-zinc-700/60";
-
+function ProductSearchShowcase() {
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <Reveal className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]">
-          {/* window chrome */}
-          <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
-            <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+        <Reveal className="order-2 lg:order-1">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+            01 · Buscar leads
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            Encuentra perfiles relevantes.
+          </h2>
+          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+            Busca por hashtag, nicho o cuentas similares. Cada run analiza
+            cientos de perfiles, los puntúa y los entrega listos en tu pipeline.
+          </p>
+          <ul className="mt-8 grid gap-px overflow-hidden rounded-xl border border-zinc-800 bg-zinc-800 sm:grid-cols-2">
+            {[
+              { k: "Modos", v: "Seguidores · Hashtag · Nicho" },
+              { k: "Última run", v: "+15 leads nuevos" },
+              { k: "Score medio", v: "62 / 100" },
+              { k: "Coste estimado", v: "~338 créditos" },
+            ].map((s) => (
+              <li key={s.k} className="bg-zinc-950 px-4 py-3">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                  {s.k}
+                </p>
+                <p className="mt-1 text-[13px] text-zinc-200">{s.v}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={80} className="order-1 lg:order-2">
+          <ProductFrame label="app.foculead.com / buscar-leads">
+            <div className="relative h-[520px] w-full overflow-hidden sm:h-[600px]">
+              <img
+                src={productSearchUrl}
+                alt="Pantalla de búsqueda de leads en FocuLead mostrando modos de búsqueda, score y nuevos leads"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-x-0 top-0 w-full select-none"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
             </div>
-            <div className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[11px] text-zinc-500 sm:flex">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="11" rx="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              app.foculead.com/leads
-            </div>
-            <span className="w-12" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-[210px_1fr]">
-            {/* Sidebar */}
-            <aside className="hidden flex-col justify-between border-r border-zinc-800 bg-zinc-950 md:flex">
-              <div>
-                <div className="flex items-center gap-2 border-b border-zinc-800 px-4 py-3.5">
-                  <img src={logoUrl} alt="" width={18} height={18} loading="lazy" decoding="async" className="h-[18px] w-[18px]" />
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-[13px] font-semibold text-zinc-100">FocuLead</span>
-                    <span className="text-[10px] text-zinc-500">Workspace</span>
-                  </div>
-                </div>
-                <nav className="px-2 py-3">
-                  <p className="px-2 pb-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-600">
-                    Pipeline
-                  </p>
-                  {nav.map((n) => (
-                    <div
-                      key={n.label}
-                      className={
-                        "mt-0.5 flex items-center justify-between rounded-md px-2 py-1.5 text-[13px] transition-colors duration-200 " +
-                        (n.active
-                          ? "bg-zinc-800/80 text-zinc-100"
-                          : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200")
-                      }
-                    >
-                      <span className="flex items-center gap-2">
-                        <span
-                          className={
-                            "h-1.5 w-1.5 rounded-full " +
-                            (n.active ? "bg-lime-400" : "bg-zinc-700")
-                          }
-                        />
-                        {n.label}
-                      </span>
-                      {n.count && (
-                        <span className="rounded bg-zinc-900 px-1.5 text-[10px] text-zinc-500">
-                          {n.count}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </nav>
-              </div>
-              <div className="m-3 rounded-lg border border-zinc-800 bg-zinc-900/60 p-3">
-                <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                  <span>Créditos · Starter</span>
-                  <span className="text-zinc-300">7.352 / 20.000</span>
-                </div>
-                <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-zinc-800">
-                  <div className="h-full w-[37%] rounded-full bg-lime-400" />
-                </div>
-              </div>
-            </aside>
-
-            {/* Main */}
-            <div className="min-w-0">
-              {/* Header */}
-              <div className="border-b border-zinc-800 px-5 py-4">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="text-base font-semibold text-zinc-100">Leads</h3>
-                    <p className="mt-0.5 text-[12px] text-zinc-500">
-                      Gestiona y filtra los leads captados desde Instagram.
-                    </p>
-                  </div>
-                  <div className="hidden items-center gap-2 sm:flex">
-                    <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1.5 text-[12px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
-                      Exportar
-                    </button>
-                    <button className="rounded-md bg-zinc-100 px-2.5 py-1.5 text-[12px] font-medium text-zinc-900 transition-colors duration-200 hover:bg-white">
-                      + Nuevo lead
-                    </button>
-                  </div>
-                </div>
-
-                {/* Tabs + badges row */}
-                <div className="mt-4 flex flex-wrap items-center gap-1.5">
-                  <span className="rounded-full bg-lime-400/15 px-2.5 py-1 text-[11px] font-medium text-lime-300 ring-1 ring-inset ring-lime-400/30">
-                    All · 526
-                  </span>
-                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400 hover:text-zinc-200">New · 526</span>
-                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Contacted · 0</span>
-                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Replied · 0</span>
-                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Converted · 0</span>
-                  <span className="rounded-full px-2.5 py-1 text-[11px] text-zinc-400">Skipped · 0</span>
-                </div>
-
-                {/* Filters row */}
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <div className="flex min-w-[180px] flex-1 items-center gap-2 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-zinc-500" aria-hidden="true">
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m20 20-3.5-3.5" />
-                    </svg>
-                    <span className="text-[12px] text-zinc-500">Buscar usuario, bio, nicho…</span>
-                  </div>
-                  <button className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[12px] text-zinc-300">
-                    Todos los nichos
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </button>
-                  <span className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> High quality
-                  </span>
-                  <span className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400 lg:inline-flex">
-                    <span className="h-1.5 w-1.5 rounded-full bg-lime-400" /> Listos para comprar
-                  </span>
-                  <span className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1.5 text-[11px] text-zinc-400 lg:inline-flex">
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-500" /> Archived
-                  </span>
-                </div>
-              </div>
-
-              {/* Desktop table */}
-              <div className="hidden md:block">
-                <div className="grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 border-b border-zinc-800 bg-zinc-900/40 px-5 py-2 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                  <span>Username</span>
-                  <span>Bio</span>
-                  <span>Nicho</span>
-                  <span>Engagement</span>
-                  <span>Score</span>
-                  <span>Message</span>
-                  <span className="text-right">Action</span>
-                </div>
-                <ul className="divide-y divide-zinc-800/80">
-                  {rows.map((r) => (
-                    <li
-                      key={r.user}
-                      className="group/row grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/50"
-                    >
-                      <div className="flex min-w-0 items-center gap-2">
-                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[10px] font-medium text-zinc-300">
-                          {r.initial}
-                        </span>
-                        <div className="min-w-0">
-                          <p className="truncate text-[12.5px] font-medium text-zinc-100">{r.user}</p>
-                          <p className="truncate text-[10.5px] text-zinc-500">New · 2d</p>
-                        </div>
-                      </div>
-                      <p className="truncate text-[12px] text-zinc-400">{r.bio}</p>
-                      <span className="inline-flex w-fit items-center rounded-md bg-zinc-900 px-1.5 py-0.5 text-[10.5px] text-zinc-300 ring-1 ring-inset ring-zinc-800">
-                        {r.niche}
-                      </span>
-                      <span className={"inline-flex w-fit items-center rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
-                        {r.eng}
-                      </span>
-                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20 transition-colors duration-200 group-hover/row:bg-emerald-500/15 group-hover/row:ring-emerald-500/30">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        {r.score}/100
-                      </span>
-                      <p className="truncate text-[12px] text-zinc-400">{r.msg}</p>
-                      <div className="flex justify-end gap-1.5">
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
-                          Open
-                        </button>
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
-                          Copy
-                        </button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex items-center justify-between border-t border-zinc-800 px-5 py-2.5 text-[11px] text-zinc-500">
-                  <span>Mostrando 8 de 526 leads</span>
-                  <div className="flex items-center gap-2">
-                    <span className="rounded border border-zinc-800 px-1.5 py-0.5 text-zinc-400">⌘K</span>
-                    <span>Atajos</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile cards */}
-              <ul className="divide-y divide-zinc-800 md:hidden">
-                {rows.slice(0, 5).map((r) => (
-                  <li key={r.user} className="px-4 py-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex min-w-0 items-center gap-2">
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[11px] font-medium text-zinc-300">
-                          {r.initial}
-                        </span>
-                        <p className="truncate text-[13px] font-medium text-zinc-100">{r.user}</p>
-                      </div>
-                      <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        {r.score}
-                      </span>
-                    </div>
-                    <p className="mt-1.5 line-clamp-2 text-[11.5px] text-zinc-400">{r.bio}</p>
-                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                      <span className="rounded-md bg-zinc-900 px-1.5 py-0.5 text-[10.5px] text-zinc-300 ring-1 ring-inset ring-zinc-800">
-                        {r.niche}
-                      </span>
-                      <span className={"rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
-                        {r.eng}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </ProductFrame>
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function ProductFrame({
+  children,
+  label,
+}: {
+  children: ReactNode;
+  label: string;
+}) {
+  return (
+    <div className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)]">
+      <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
+        <div className="flex items-center gap-1.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+          <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+        </div>
+        <div className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[11px] text-zinc-500 sm:flex">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          {label}
+        </div>
+        <span className="w-12" />
+      </div>
+      {children}
+    </div>
   );
 }
 
