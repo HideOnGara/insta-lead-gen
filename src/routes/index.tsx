@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import logoUrl from "@/assets/foculead-logo.png";
+import logoUrl from "@/assets/foculead-mark.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -236,7 +236,14 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-zinc-800">
       <div className="mx-auto max-w-3xl px-6 pt-28 pb-32 text-center sm:pt-36 sm:pb-40 animate-fade-in">
         <div className="flex justify-center">
-          <span className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300">
+            <img
+              src={logoUrl}
+              alt=""
+              width={14}
+              height={14}
+              className="h-3.5 w-3.5"
+            />
             Prospección con IA para Instagram
           </span>
         </div>
@@ -1090,6 +1097,16 @@ function FinalCTA() {
   return (
     <section className="border-b border-zinc-800 bg-zinc-900/60">
       <div className="mx-auto max-w-4xl px-6 py-28 text-center sm:py-36">
+        <div className="mb-8 flex justify-center">
+          <img
+            src={logoUrl}
+            alt="FocuLead"
+            width={48}
+            height={48}
+            loading="lazy"
+            className="h-12 w-12"
+          />
+        </div>
         <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-5xl">
           Empieza hoy.
           <br />
