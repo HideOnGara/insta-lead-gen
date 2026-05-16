@@ -72,19 +72,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FocuLead | Generador de Leads de Instagram con IA" },
-      { name: "description", content: "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos." },
+      { title: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { name: "description", content: "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos." },
       { name: "author", content: "FocuLead" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
-      { property: "og:description", content: "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos." },
+      { property: "og:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { property: "og:description", content: "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "FocuLead" },
       { property: "og:locale", content: "es_ES" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://foculead.com/" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
-      { name: "twitter:description", content: "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos." },
+      { name: "twitter:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { name: "twitter:description", content: "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ee9ddb64-e282-485f-9562-97b29f712123/id-preview-e9bbb6d9--6ac25ba8-bcf9-4cad-8cdc-62ba5ac5db0e.lovable.app-1778865544619.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ee9ddb64-e282-485f-9562-97b29f712123/id-preview-e9bbb6d9--6ac25ba8-bcf9-4cad-8cdc-62ba5ac5db0e.lovable.app-1778865544619.png" },
     ],
@@ -122,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
