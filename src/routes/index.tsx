@@ -367,6 +367,109 @@ function HowItWorks() {
   );
 }
 
+function ProblemSolution() {
+  const problems = [
+    {
+      title: "Horas perdidas buscando perfiles",
+      icon: (
+        <>
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </>
+      ),
+    },
+    {
+      title: "Leads poco cualificados",
+      icon: (
+        <>
+          <path d="M3 3l18 18" />
+          <path d="M10.58 10.58a2 2 0 0 0 2.83 2.83" />
+          <path d="M9.88 5.09A10.94 10.94 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+          <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a10.94 10.94 0 0 0 5.39-1.41" />
+        </>
+      ),
+    },
+    {
+      title: "Mensajes genéricos que nadie responde",
+      icon: (
+        <>
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </>
+      ),
+    },
+    {
+      title: "Prospectar todos los días agota",
+      icon: (
+        <>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </>
+      ),
+    },
+  ];
+  const solutions = [
+    "Encuentra perfiles relevantes automáticamente",
+    "Prioriza los mejores leads con IA",
+    "Genera DMs personalizados en segundos",
+    "Convierte Instagram en un canal de adquisición real",
+  ];
+  return (
+    <section className="border-b border-zinc-800">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            La prospección manual no escala.
+          </h2>
+          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+            Buscar perfiles uno a uno, revisar bios y escribir DMs manualmente
+            consume horas cada semana.
+          </p>
+        </div>
+        <div className="mt-14 grid gap-8 md:grid-cols-2 md:gap-10">
+          <ul className="flex flex-col gap-5">
+            {problems.map((p) => (
+              <li
+                key={p.title}
+                className="flex items-start gap-4 border-b border-zinc-800/70 pb-5 last:border-0"
+              >
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-800 text-zinc-400">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {p.icon}
+                  </svg>
+                </span>
+                <span className="text-base text-zinc-300">{p.title}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-8 sm:p-10">
+            <h3 className="text-xl font-semibold tracking-tight text-zinc-100 sm:text-2xl">
+              FocuLead automatiza todo el proceso.
+            </h3>
+            <ul className="mt-8 space-y-4">
+              {solutions.map((s) => (
+                <li key={s} className="flex items-start gap-3">
+                  <CheckIcon />
+                  <span className="text-base text-zinc-200">{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ForWho() {
   const items = [
     "Agencias de marketing que prospectan en Instagram",
@@ -622,6 +725,7 @@ function Index() {
       <main>
         <Hero />
         <ProductPreview />
+        <ProblemSolution />
         <HowItWorks />
         <ForWho />
         <Pricing />
