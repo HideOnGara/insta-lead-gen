@@ -211,84 +211,84 @@ function ProductPreview() {
   ];
   const rows = [
     {
-      initial: "C",
-      user: "@coach.himjain",
-      bio: "Health Coach | Wellness Educator. Helping Gujarati people improve weight…",
-      niche: "Coaching & Education",
-      eng: "17.5%",
+      initial: "S",
+      user: "@studiofina.co",
+      bio: "Creative studio for modern wellness & lifestyle brands. Identity · Web · Launch…",
+      niche: "Branding & Creative",
+      eng: "5.2%",
       engTone: "warn",
-      score: 79,
-      msg: "Hey! Just scrolled through your content on hormonal bal…",
+      score: 82,
+      msg: "Hola! Vi vuestro último rebrand y me encantó el enfoque ed…",
     },
     {
-      initial: "C",
-      user: "@creativeworks.dk",
-      bio: "A creative space for building your brand. Create with THE STUDIO or THE …",
-      niche: "Branding & Creative",
+      initial: "G",
+      user: "@growmetriclab",
+      bio: "Helping local brands grow through paid acquisition. Meta & Google Ads…",
+      niche: "Marketing & Growth",
       eng: "4.0%",
       engTone: "warn",
+      score: 79,
+      msg: "Hey! Vi vuestro enfoque sobre captación local y creo que p…",
+    },
+    {
+      initial: "N",
+      user: "@northpeakmedia",
+      bio: "Brand strategy for premium service businesses. Studio remoto · EU + LATAM…",
+      niche: "Branding & Creative",
+      eng: "2.1%",
+      engTone: "muted",
       score: 77,
-      msg: "Hey! Love how you're weaving emotion into branding with…",
+      msg: "Hola! Me llamó la atención cómo posicionáis a vuestros clien…",
     },
     {
       initial: "E",
-      user: "@errantiestudioinmobiliario",
-      bio: "Los creadores del Cyber Week Inmobiliario · 20% OFF en alquileres y…",
-      niche: "Real Estate & Architecture",
-      eng: "1.9%",
-      engTone: "muted",
+      user: "@elevahub",
+      bio: "Consultoría de operaciones para restaurantes y grupos hosteleros…",
+      niche: "Food & Hospitality",
+      eng: "11.4%",
+      engTone: "good",
       score: 77,
-      msg: "Hola! Vi que están arrasando con el Cyber Week Inmobiliari…",
+      msg: "Hola! Vi vuestro contenido sobre eficiencia en sala y me e…",
     },
     {
       initial: "L",
-      user: "@liderazgohostelero",
-      bio: "Clientes = personas · Tu equipo = personas · Si entiendes a las personas…",
-      niche: "Food & Hospitality",
-      eng: "41.7%",
-      engTone: "good",
-      score: 77,
-      msg: "Hola! Acabo de ver tu contenido sobre liderazgo en hostele…",
-    },
-    {
-      initial: "D",
-      user: "@dr.marcelo.silvaa",
-      bio: "Advogado com atuação nas áreas Cível, Criminal e de Família. Professor d…",
+      user: "@lumenstrategy",
+      bio: "Asesoría legal y fiscal para empresas en crecimiento. España · Portugal…",
       niche: "Finance & Legal",
       eng: "3.5%",
       engTone: "warn",
       score: 76,
-      msg: "Hola! Vi que trabajas temas de familia y sucesiones, y eso…",
+      msg: "Hola! Vi vuestro contenido sobre fiscalidad para PyMEs y p…",
     },
     {
-      initial: "F",
-      user: "@falconi.vlabs",
-      bio: "AI Content Creator · Elite Creator: Kling AI · CPP: Invideo | Open…",
-      niche: "Coaching & Education",
-      eng: "61.0%",
+      initial: "B",
+      user: "@brandnexa",
+      bio: "Consultoría de automatización para empresas B2B. IA · CRM · Workflows…",
+      niche: "Tech & Automation",
+      eng: "8.7%",
       engTone: "good",
       score: 76,
-      msg: "Hola! Vi que llevas un año apostando fuerte por la IA y la…",
+      msg: "Hola! Vi vuestro enfoque sobre automatización comercial y …",
     },
     {
-      initial: "N",
-      user: "@nutrifit.mom",
-      bio: "Timișoara · Ajut MAMELE și FEMEILE OCUPATE să se mențină în formă! DM d…",
+      initial: "U",
+      user: "@urbanwellness.co",
+      bio: "Estudio de bienestar urbano · Programas corporativos y retiros boutique…",
       niche: "Health & Wellness",
       eng: "3.9%",
       engTone: "warn",
       score: 76,
-      msg: "Hey! Love how you're helping busy moms stay fit without…",
+      msg: "Hola! Me ha gustado mucho vuestro programa corporativo y …",
     },
     {
-      initial: "A",
-      user: "@abogadowolfgang_gwraices",
-      bio: "Blindamos tu inversión inmobiliaria en Aragua · Compra y vende …",
-      niche: "Real Estate & Architecture",
-      eng: "8.3%",
+      initial: "C",
+      user: "@craftedgrowth",
+      bio: "Growth partners para SaaS y agencias. Estrategia, contenido y outbound…",
+      niche: "Marketing & Growth",
+      eng: "6.8%",
       engTone: "warn",
       score: 76,
-      msg: "Hola! Vi que blindas inversiones inmobiliarias en Aragua y…",
+      msg: "Hola! Vi vuestro último caso de outbound para SaaS y me en…",
     },
   ];
   const engClass = (tone: string) =>
@@ -674,7 +674,7 @@ function ProblemSolution() {
 function LeadIntelligence() {
   const signals = [
     { label: "Engagement alto", value: "4.0%" },
-    { label: "Nicho relevante", value: "Branding & Creative" },
+    { label: "Nicho relevante", value: "Marketing & Growth" },
     { label: "Bio optimizada", value: "Describe claramente su servicio" },
     { label: "Potencial B2B", value: "Alta probabilidad de compra" },
     { label: "Audiencia activa", value: "553 publicaciones" },
@@ -717,14 +717,14 @@ function LeadIntelligence() {
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[12px] font-medium text-zinc-300">
-                  C
+                  G
                 </span>
                 <div className="min-w-0">
                   <p className="truncate text-[13.5px] font-medium text-zinc-100">
-                    @creativeworks.dk
+                    @growmetriclab
                   </p>
                   <p className="truncate text-[11.5px] text-zinc-500">
-                    Branding & Creative
+                    Marketing & Growth
                   </p>
                 </div>
               </div>
