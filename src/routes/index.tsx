@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -119,6 +120,56 @@ function signupUrl(plan: string) {
   return `${LOGIN_URL}?mode=signup&next=${next}`;
 }
 
+/* Scroll-triggered fade + translateY. GPU accelerated, IntersectionObserver. */
+function Reveal({
+  children,
+  delay = 0,
+  as: Tag = "div",
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  as?: "div" | "li" | "section" | "header" | "ul";
+  className?: string;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setVisible(true);
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
+  const style = delay ? { transitionDelay: `${delay}ms` } : undefined;
+  // @ts-expect-error dynamic tag
+  return (
+    <Tag
+      ref={ref}
+      style={style}
+      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+    >
+      {children}
+    </Tag>
+  );
+}
+
 function CheckIcon() {
   return (
     <svg
@@ -139,8 +190,22 @@ function CheckIcon() {
 }
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+    <header
+      className={
+        "sticky top-0 z-40 backdrop-blur transition-all duration-200 " +
+        (scrolled
+          ? "border-b border-zinc-800 bg-zinc-950/85 supports-[backdrop-filter]:bg-zinc-950/65"
+          : "border-b border-transparent bg-zinc-950/40")
+      }
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a
           href="/"
@@ -157,7 +222,7 @@ function Nav() {
         </a>
         <a
           href={LOGIN_URL}
-          className="rounded-md border border-zinc-800 px-3.5 py-1.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+          className="rounded-md border border-zinc-800 px-3.5 py-1.5 text-sm text-zinc-300 transition-all duration-200 hover:border-zinc-700 hover:text-zinc-100 hover:-translate-y-px"
         >
           Iniciar sesión
         </a>
