@@ -59,48 +59,59 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-lime: var(--lime);
+  --color-lime-deep: var(--lime-deep);
+  --color-lime-soft: var(--lime-soft);
 }
 
 :root {
   --radius: 0.625rem;
-  /* zinc-950 */
-  --background: oklch(0.1448 0 0);
-  /* zinc-100 */
-  --foreground: oklch(0.967 0.001 286.375);
-  /* zinc-900 */
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.967 0.001 286.375);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.967 0.001 286.375);
-  /* lime-400 as primary (brand action color) */
-  --primary: oklch(0.877 0.217 130.9);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.21 0.006 285.885);
-  --secondary-foreground: oklch(0.967 0.001 286.375);
-  --muted: oklch(0.21 0.006 285.885);
-  /* zinc-400 */
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.967 0.001 286.375);
+  /* ── FocuLead Brand System v1.0 ─────────────────────── */
+  /* Paper #f6f3ec  · default surface */
+  --paper: #f6f3ec;
+  /* Ink #0d0d0e    · text + reversed surfaces */
+  --ink: #0d0d0e;
+  /* Lime #84cc16   · accent / brand action */
+  --lime: #84cc16;
+  /* Lime Deep #5a8f0f · accent on paper */
+  --lime-deep: #5a8f0f;
+  /* Lime Soft #d9f99d · highlights / callouts */
+  --lime-soft: #d9f99d;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--lime);
+  --primary-foreground: var(--ink);
+  --secondary: #ecead9;
+  --secondary-foreground: var(--ink);
+  --muted: #ecead9;
+  --muted-foreground: #5e5e62;
+  --accent: var(--lime-soft);
+  --accent-foreground: var(--ink);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  /* zinc-800 */
-  --border: oklch(0.274 0.006 286.033);
-  --input: oklch(0.274 0.006 286.033);
-  --ring: oklch(0.877 0.217 130.9);
+  --destructive-foreground: var(--paper);
+  --border: rgba(13, 13, 14, 0.12);
+  --input: rgba(13, 13, 14, 0.18);
+  --ring: var(--lime-deep);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.877 0.217 130.9);
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: oklch(0.22 0.07 130);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--lime);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: var(--lime-soft);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: rgba(13, 13, 14, 0.1);
+  --sidebar-ring: var(--lime-deep);
 }
 
 .dark {
