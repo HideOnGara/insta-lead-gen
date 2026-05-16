@@ -600,161 +600,116 @@ function ProblemSolution() {
   );
 }
 
-function LeadIntelligence() {
-  const signals = [
-    { label: "Engagement alto", value: "4.0%" },
-    { label: "Nicho relevante", value: "Marketing & Growth" },
-    { label: "Bio optimizada", value: "Describe claramente su servicio" },
-    { label: "Potencial B2B", value: "Alta probabilidad de compra" },
-    { label: "Audiencia activa", value: "553 publicaciones" },
+function LeadDetailShowcase() {
+  const highlights = [
+    { k: "Bio", v: "Contexto real del perfil" },
+    { k: "Engagement", v: "41.7%" },
+    { k: "Lead score", v: "77 / 100" },
+    { k: "Follow-up", v: "Fecha y notas" },
+    { k: "Outreach", v: "Mensaje listo · ES / EN" },
   ];
-  const blocks = [
-    {
-      title: "No solo buscamos perfiles.",
-      body: "FocuLead identifica cuentas que realmente encajan con tu cliente ideal.",
-    },
-    {
-      title: "Cada lead lleva un score claro.",
-      body: "Engagement, nicho, actividad, bio y señales comerciales se combinan en una puntuación de 0 a 100.",
-    },
-    {
-      title: "Solo ves oportunidades reales.",
-      body: "Evita perder horas revisando perfiles irrelevantes o escribiendo mensajes genéricos.",
-    },
-    {
-      title: "Mensajes contextualizados.",
-      body: "Cada mensaje se prepara con información real del perfil para aumentar las respuestas.",
-    },
+  return (
+    <section className="border-b border-zinc-800">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+        <Reveal>
+          <ProductFrame label="app.foculead.com / lead">
+            <div className="relative h-[560px] w-full overflow-hidden sm:h-[640px]">
+              <img
+                src={productLeadDetailUrl}
+                alt="Vista de detalle de un lead en FocuLead con bio, score, engagement y mensaje de outreach"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-x-0 top-0 w-full select-none"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
+            </div>
+          </ProductFrame>
+        </Reveal>
+        <Reveal delay={80}>
+          <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+            02 · Lead detail
+          </span>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            Contacta con contexto.
+          </h2>
+          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+            Cada lead incluye contexto, scoring y un mensaje listo para
+            adaptar. Decide, anota, guarda follow-ups y mueve la oportunidad
+            sin salir del flujo.
+          </p>
+          <ul className="mt-8 divide-y divide-zinc-800/80 border-y border-zinc-800/80">
+            {highlights.map((h) => (
+              <li
+                key={h.k}
+                className="flex items-center justify-between gap-3 py-3 transition-colors duration-200 hover:bg-zinc-900/40"
+              >
+                <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+                  {h.k}
+                </span>
+                <span className="text-[13px] text-zinc-200">{h.v}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function AnalyticsShowcase() {
+  const kpis = [
+    { v: "541", l: "leads totales" },
+    { v: "90d", l: "rango activo" },
+    { v: "0.0%", l: "tasa respuesta" },
+    { v: "8", l: "nichos rastreados" },
   ];
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-            Así encuentra FocuLead los mejores leads
-          </h2>
-          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-            Señales reales de negocio para detectar perfiles con alta
-            probabilidad de convertirse en clientes.
-          </p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-16">
+          <Reveal>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+              03 · Analytics
+            </span>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+              Mide qué convierte.
+            </h2>
+            <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+              Visualiza rendimiento, respuestas y conversiones desde un solo
+              lugar. Funnel, nichos y fuentes con el detalle que necesitas
+              para iterar.
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-zinc-800 bg-zinc-800 sm:grid-cols-4">
+              {kpis.map((k) => (
+                <li key={k.l} className="bg-zinc-950 px-4 py-4">
+                  <p className="text-2xl font-semibold tracking-tight text-zinc-100 tabular-nums">
+                    {k.v}
+                  </p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                    {k.l}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 md:gap-10">
-          {/* Left: Lead Intelligence card */}
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-colors duration-200 hover:border-zinc-700 sm:p-8">
-            {/* Header */}
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[12px] font-medium text-zinc-300">
-                  G
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-[13.5px] font-medium text-zinc-100">
-                    @growmetriclab
-                  </p>
-                  <p className="truncate text-[11.5px] text-zinc-500">
-                    Marketing & Growth
-                  </p>
-                </div>
-              </div>
-              <span className="rounded-md border border-zinc-800 bg-zinc-950 px-2 py-1 text-[10px] uppercase tracking-wider text-zinc-500">
-                Lead score
-              </span>
+        <Reveal delay={120} className="mt-14">
+          <ProductFrame label="app.foculead.com / analytics">
+            <div className="relative w-full overflow-hidden bg-zinc-950">
+              <img
+                src={productAnalyticsUrl}
+                alt="Pantalla de analytics de FocuLead con funnel de conversión, velocidad y rendimiento por nicho"
+                loading="lazy"
+                decoding="async"
+                className="block w-full select-none"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-950/90 to-transparent" />
             </div>
-
-            {/* Score */}
-            <div className="mt-6 border-t border-zinc-800 pt-5">
-              <div className="flex items-baseline justify-between">
-                <span className="text-[10.5px] font-medium uppercase tracking-wider text-zinc-500">
-                  Lead score
-                </span>
-                <span className="text-[10.5px] text-emerald-400">High quality</span>
-              </div>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="text-4xl font-semibold tracking-tight text-zinc-100 tabular-nums sm:text-5xl">
-                  77
-                </span>
-                <span className="text-sm text-zinc-500">/100</span>
-              </div>
-              <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
-                <div className="h-full w-[77%] rounded-full bg-emerald-500" />
-              </div>
-            </div>
-
-            {/* Signals */}
-            <div className="mt-6 border-t border-zinc-800 pt-5">
-              <p className="text-[10.5px] font-medium uppercase tracking-wider text-zinc-500">
-                Señales analizadas
-              </p>
-              <ul className="mt-3 divide-y divide-zinc-800/80">
-                {signals.map((s) => (
-                  <li
-                    key={s.label}
-                    className="flex items-center justify-between gap-3 py-2.5 transition-colors duration-200 hover:bg-zinc-900/40"
-                  >
-                    <span className="flex min-w-0 items-center gap-2">
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="shrink-0 text-emerald-400"
-                        aria-hidden="true"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                      <span className="truncate text-[12.5px] text-zinc-300">
-                        {s.label}
-                      </span>
-                    </span>
-                    <span className="shrink-0 text-[12px] text-zinc-400 tabular-nums">
-                      {s.value}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-5 flex items-center justify-between border-t border-zinc-800 pt-4">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[10.5px] text-zinc-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
-                Señales analizadas
-              </span>
-              <span className="text-[10.5px] text-zinc-600 tabular-nums">
-                hace 4 min
-              </span>
-            </div>
-          </div>
-
-          {/* Right: explanatory blocks */}
-          <ul className="flex flex-col">
-            {blocks.map((b, i) => (
-              <li
-                key={b.title}
-                className={
-                  "group py-5 transition-colors duration-200 " +
-                  (i !== 0 ? "border-t border-zinc-800" : "")
-                }
-              >
-                <div className="flex items-start gap-4">
-                  <span className="mt-1 font-mono text-[11px] text-zinc-600 tabular-nums">​</span>
-                  <div className="min-w-0">
-                    <h3 className="text-base font-medium text-zinc-100 transition-colors duration-200 group-hover:text-white">
-                      {b.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">
-                      {b.body}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+          </ProductFrame>
+        </Reveal>
       </div>
     </section>
   );
