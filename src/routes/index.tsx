@@ -917,14 +917,16 @@ function ForWho() {
           Para quién es FocuLead
         </h2>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2">
-          {items.map((it) => (
-            <li
+          {items.map((it, i) => (
+            <Reveal
               key={it}
-              className="flex items-start gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 p-5"
+              as="li"
+              delay={i * 60}
+              className="flex items-start gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 p-5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900/70"
             >
               <CheckIcon />
               <span className="text-base text-zinc-200">{it}</span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>
