@@ -519,7 +519,7 @@ function ProductPreview() {
                   {rows.map((r) => (
                     <li
                       key={r.user}
-                      className="grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/40"
+                      className="group/row grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/50"
                     >
                       <div className="flex min-w-0 items-center gap-2">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[10px] font-medium text-zinc-300">
@@ -537,16 +537,16 @@ function ProductPreview() {
                       <span className={"inline-flex w-fit items-center rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
                         {r.eng}
                       </span>
-                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20 transition-colors duration-200 group-hover/row:bg-emerald-500/15 group-hover/row:ring-emerald-500/30">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                         {r.score}/100
                       </span>
                       <p className="truncate text-[12px] text-zinc-400">{r.msg}</p>
                       <div className="flex justify-end gap-1.5">
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
                           Open
                         </button>
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
                           Copy
                         </button>
                       </div>
