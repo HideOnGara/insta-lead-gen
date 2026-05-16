@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -119,6 +120,56 @@ function signupUrl(plan: string) {
   return `${LOGIN_URL}?mode=signup&next=${next}`;
 }
 
+/* Scroll-triggered fade + translateY. GPU accelerated, IntersectionObserver. */
+function Reveal({
+  children,
+  delay = 0,
+  as: Tag = "div",
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  as?: "div" | "li" | "section" | "header" | "ul";
+  className?: string;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setVisible(true);
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
+  const style = delay ? { transitionDelay: `${delay}ms` } : undefined;
+  const Component = Tag as React.ElementType;
+  return (
+    <Component
+      ref={ref as React.Ref<HTMLElement>}
+      style={style}
+      className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+    >
+      {children}
+    </Component>
+  );
+}
+
 function CheckIcon() {
   return (
     <svg
@@ -139,8 +190,22 @@ function CheckIcon() {
 }
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+    <header
+      className={
+        "sticky top-0 z-40 backdrop-blur transition-all duration-200 " +
+        (scrolled
+          ? "border-b border-zinc-800 bg-zinc-950/85 supports-[backdrop-filter]:bg-zinc-950/65"
+          : "border-b border-transparent bg-zinc-950/40")
+      }
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a
           href="/"
@@ -157,7 +222,7 @@ function Nav() {
         </a>
         <a
           href={LOGIN_URL}
-          className="rounded-md border border-zinc-800 px-3.5 py-1.5 text-sm text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+          className="rounded-md border border-zinc-800 px-3.5 py-1.5 text-sm text-zinc-300 transition-all duration-200 hover:border-zinc-700 hover:text-zinc-100 hover:-translate-y-px"
         >
           Iniciar sesión
         </a>
@@ -186,7 +251,7 @@ function Hero() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
             href={LOGIN_URL}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset] transition-all duration-200 ease-out hover:bg-primary/95 hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_8px_24px_-8px_rgba(132,204,22,0.5)] active:translate-y-0 active:scale-100"
           >
             Empieza gratis →
           </a>
@@ -307,7 +372,7 @@ function ProductPreview() {
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="animate-in fade-in slide-in-from-bottom-4 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 duration-700">
+        <Reveal className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]">
           {/* window chrome */}
           <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
             <div className="flex items-center gap-1.5">
@@ -454,7 +519,7 @@ function ProductPreview() {
                   {rows.map((r) => (
                     <li
                       key={r.user}
-                      className="grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/40"
+                      className="group/row grid grid-cols-[1.6fr_2fr_1.3fr_0.7fr_0.7fr_1.8fr_0.9fr] items-center gap-3 px-5 py-2.5 transition-colors duration-200 hover:bg-zinc-900/50"
                     >
                       <div className="flex min-w-0 items-center gap-2">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[10px] font-medium text-zinc-300">
@@ -472,16 +537,16 @@ function ProductPreview() {
                       <span className={"inline-flex w-fit items-center rounded-md px-1.5 py-0.5 text-[10.5px] font-medium " + engClass(r.engTone)}>
                         {r.eng}
                       </span>
-                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+                      <span className="inline-flex w-fit items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20 transition-colors duration-200 group-hover/row:bg-emerald-500/15 group-hover/row:ring-emerald-500/30">
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                         {r.score}/100
                       </span>
                       <p className="truncate text-[12px] text-zinc-400">{r.msg}</p>
                       <div className="flex justify-end gap-1.5">
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
                           Open
                         </button>
-                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-colors duration-200 hover:border-zinc-700 hover:text-zinc-100">
+                        <button className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[11px] text-zinc-300 transition-all duration-200 hover:-translate-y-px hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
                           Copy
                         </button>
                       </div>
@@ -527,7 +592,7 @@ function ProductPreview() {
               </ul>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -558,15 +623,16 @@ function HowItWorks() {
           Tres pasos. Cero búsquedas manuales.
         </h2>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {steps.map((s) => (
-            <div
+          {steps.map((s, i) => (
+            <Reveal
               key={s.n}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6"
+              delay={i * 80}
+              className="group rounded-xl border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900 hover:shadow-[0_12px_30px_-15px_rgba(0,0,0,0.6)]"
             >
-              <div className="text-sm font-mono text-zinc-400">{s.n}</div>
+              <div className="text-sm font-mono text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300">{s.n}</div>
               <h3 className="mt-4 text-lg font-medium text-zinc-100">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{s.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -851,14 +917,16 @@ function ForWho() {
           Para quién es FocuLead
         </h2>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2">
-          {items.map((it) => (
-            <li
+          {items.map((it, i) => (
+            <Reveal
               key={it}
-              className="flex items-start gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 p-5"
+              as="li"
+              delay={i * 60}
+              className="flex items-start gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 p-5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900/70"
             >
               <CheckIcon />
               <span className="text-base text-zinc-200">{it}</span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>
@@ -918,12 +986,15 @@ function Pricing() {
           Precios claros. Sin letra pequeña.
         </h2>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {plans.map((p) => (
-            <div
+          {plans.map((p, i) => (
+            <Reveal
               key={p.name}
+              delay={i * 70}
               className={
-                "relative flex flex-col rounded-xl border bg-zinc-900/60 p-6 " +
-                (p.popular ? "border-primary" : "border-zinc-800")
+                "group relative flex flex-col rounded-xl border bg-zinc-900/60 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)] " +
+                (p.popular
+                  ? "border-primary hover:shadow-[0_20px_50px_-20px_rgba(132,204,22,0.35)]"
+                  : "border-zinc-800 hover:border-zinc-700")
               }
             >
               {p.popular && (
@@ -949,15 +1020,15 @@ function Pricing() {
               <a
                 href={p.plan ? signupUrl(p.plan) : LOGIN_URL}
                 className={
-                  "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-colors " +
+                  "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-out hover:-translate-y-0.5 " +
                   (p.popular
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/95 hover:shadow-[0_8px_20px_-8px_rgba(132,204,22,0.5)]"
                     : "border border-zinc-800 text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900")
                 }
               >
                 {p.cta}
               </a>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -1028,7 +1099,7 @@ function FinalCTA() {
         </h2>
         <a
           href={LOGIN_URL}
-          className="mt-10 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          className="mt-10 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-primary/95 hover:shadow-[0_10px_30px_-10px_rgba(132,204,22,0.55)] active:translate-y-0 active:scale-100"
         >
           Crear cuenta gratis →
         </a>
