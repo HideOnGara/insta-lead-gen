@@ -376,7 +376,139 @@ function Outcomes() {
   );
 }
 
-function ProductPreview() {
+function ProductHero() {
+  return (
+    <section className="border-b border-zinc-800 bg-zinc-950">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <Reveal className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-zinc-700">
+          <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+            </div>
+            <div className="hidden items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[11px] text-zinc-500 sm:flex">
+              app.foculead.com/leads
+            </div>
+            <span className="w-12" />
+          </div>
+          <div className="relative">
+            <img
+              src={productSearch}
+              alt="FocuLead — búsqueda de leads en Instagram"
+              loading="lazy"
+              decoding="async"
+              className="block w-full"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-zinc-950" />
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function OutboundShowcase() {
+  const blocks = [
+    {
+      tag: "01 · Búsqueda",
+      title: "Encuentra perfiles relevantes.",
+      body: "Busca por hashtag, cuentas referentes o nicho. Cada run te devuelve leads frescos.",
+      img: productSearch,
+      alt: "Panel de búsqueda de leads con scoring por fuente",
+      crop: "translate-y-0",
+    },
+    {
+      tag: "02 · Contexto",
+      title: "Contacta con contexto.",
+      body: "Cada lead llega con bio, score, nicho y un primer mensaje listo para enviar.",
+      img: productLead,
+      alt: "Detalle de un lead con score, señales y mensaje preparado",
+      crop: "translate-y-0",
+      reverse: true,
+    },
+    {
+      tag: "03 · Pipeline",
+      title: "Mide qué convierte.",
+      body: "Embudo, tasas y rendimiento por nicho y fuente. Optimiza lo que ya funciona.",
+      img: productAnalytics,
+      alt: "Dashboard de analytics con embudo, velocidad y rendimiento por nicho",
+      crop: "translate-y-0",
+    },
+  ];
+  return (
+    <section id="outbound" className="border-b border-zinc-800">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="max-w-2xl">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+            Workflow
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            Todo tu outbound en Instagram.
+          </h2>
+          <p className="mt-4 text-base text-zinc-400 sm:text-lg">
+            Buscar, priorizar y contactar. Un solo flujo, sin saltar entre
+            herramientas.
+          </p>
+        </div>
+        <div className="mt-16 flex flex-col gap-20 sm:gap-28">
+          {blocks.map((b, i) => (
+            <Reveal
+              key={b.title}
+              delay={i * 60}
+              className={
+                "grid items-center gap-10 md:grid-cols-12 md:gap-12 " +
+                (b.reverse ? "md:[&>div:first-child]:order-2" : "")
+              }
+            >
+              <div className="md:col-span-5">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+                  {b.tag}
+                </span>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
+                  {b.title}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-zinc-400">
+                  {b.body}
+                </p>
+              </div>
+              <div className="md:col-span-7">
+                <div className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)]">
+                  <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                      <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                      <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-600">
+                      app.foculead.com
+                    </span>
+                    <span className="w-8" />
+                  </div>
+                  <div className="relative max-h-[440px] overflow-hidden bg-zinc-950">
+                    <img
+                      src={b.img}
+                      alt={b.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className={
+                        "block w-full transition-transform duration-500 ease-out group-hover:scale-[1.015] " +
+                        b.crop
+                      }
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-zinc-950/95" />
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function _LegacyProductPreview() {
   const nav = [
     { label: "Leads", count: "526", active: true },
     { label: "Buscar leads", count: null, active: false },
