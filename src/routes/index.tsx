@@ -675,7 +675,6 @@ function LeadIntelligence() {
   const signals = [
     { label: "Engagement alto", value: "4.0%" },
     { label: "Nicho relevante", value: "Branding & Creative" },
-    { label: "Actividad reciente", value: "Publicó hace 2 días" },
     { label: "Bio optimizada", value: "Describe claramente su servicio" },
     { label: "Potencial B2B", value: "Alta probabilidad de compra" },
     { label: "Audiencia activa", value: "553 publicaciones" },
