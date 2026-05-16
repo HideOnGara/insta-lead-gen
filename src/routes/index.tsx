@@ -813,9 +813,7 @@ function LeadIntelligence() {
                 }
               >
                 <div className="flex items-start gap-4">
-                  <span className="mt-1 font-mono text-[11px] text-zinc-600 tabular-nums">
-                    0{i + 1}
-                  </span>
+                  <span className="mt-1 font-mono text-[11px] text-zinc-600 tabular-nums">​</span>
                   <div className="min-w-0">
                     <h3 className="text-base font-medium text-zinc-100 transition-colors duration-200 group-hover:text-white">
                       {b.title}
