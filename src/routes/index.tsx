@@ -12,30 +12,30 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { title: "FocuLead — Encuentra tus próximos clientes en Instagram" },
       {
         name: "description",
         content:
-          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
+          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
       },
-      { property: "og:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { property: "og:title", content: "FocuLead — Encuentra tus próximos clientes en Instagram" },
       {
         property: "og:description",
         content:
-          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
+          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://foculead.com/" },
       { property: "og:image", content: "https://foculead.com/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
+      { property: "og:image:alt", content: "FocuLead — Leads de Instagram" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
+      { name: "twitter:title", content: "FocuLead — Encuentra tus próximos clientes en Instagram" },
       {
         name: "twitter:description",
         content:
-          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
+          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
       },
       { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web",
           description:
-            "Herramienta SaaS que encuentra leads cualificados en Instagram con IA y genera el primer mensaje personalizado.",
+            "Herramienta de prospección que encuentra leads cualificados en Instagram, prioriza oportunidades reales y prepara el primer mensaje personalizado.",
           offers: [
             { "@type": "Offer", name: "Free", price: "0", priceCurrency: "EUR" },
             { "@type": "Offer", name: "Starter", price: "29", priceCurrency: "EUR" },
@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
               name: "¿Qué es un crédito?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Cada perfil que la IA analiza consume 1 crédito. Generar el DM consume 1 crédito adicional.",
+                text: "Cada perfil analizado consume 1 crédito. Preparar el mensaje consume 1 crédito adicional.",
               },
             },
             {
@@ -244,16 +244,16 @@ function Hero() {
               height={14}
               className="h-3.5 w-3.5"
             />
-            Prospección con IA para Instagram
+            Prospección para Instagram
           </span>
         </div>
         <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold tracking-tight leading-[1.05] text-zinc-100 sm:text-5xl md:text-6xl">
-          <span className="block text-zinc-100">Instagram tiene tus clientes.</span>
-          <span className="block text-[#84cc16]">FocuLead los encuentra.</span>
+          <span className="block text-zinc-100">Tu próximo cliente</span>
+          <span className="block text-[#84cc16]">ya está en Instagram.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-zinc-400 sm:text-lg">
-          Encuentra leads cualificados, priorízalos con IA y genera mensajes
-          personalizados en segundos.
+          Encuentra perfiles relevantes, prioriza oportunidades reales y
+          contacta más rápido. Deja de buscar leads manualmente.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
@@ -279,8 +279,8 @@ function Hero() {
 
 function SocialProof() {
   const metrics = [
-    { value: "12.000+", label: "perfiles analizados" },
-    { value: "3.500+", label: "DMs generados" },
+    { value: "12.000+", label: "leads encontrados" },
+    { value: "3.500+", label: "mensajes preparados" },
     { value: "127", label: "campañas activas" },
   ];
   const brands = [
@@ -330,6 +330,66 @@ function SocialProof() {
           Agencias, freelancers y consultores ya usan FocuLead para encontrar
           clientes en Instagram.
         </p>
+      </div>
+    </section>
+  );
+}
+
+function Outcomes() {
+  const items = [
+    {
+      n: "01",
+      title: "Menos tiempo buscando",
+      body: "Deja de revisar perfiles manualmente.",
+    },
+    {
+      n: "02",
+      title: "Más conversaciones",
+      body: "Contacta perfiles relevantes cada día.",
+    },
+    {
+      n: "03",
+      title: "Mejores leads",
+      body: "Prioriza cuentas con potencial real.",
+    },
+    {
+      n: "04",
+      title: "Pipeline constante",
+      body: "Convierte Instagram en un canal de prospección.",
+    },
+  ];
+  return (
+    <section className="border-b border-zinc-800">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
+            Qué consigues con FocuLead
+          </h2>
+          <p className="mt-5 text-base text-zinc-400 sm:text-lg">
+            Resultados concretos, no promesas. Una herramienta operativa para
+            llenar tu pipeline cada semana.
+          </p>
+        </div>
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-xl border border-zinc-800 bg-zinc-800 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((it, i) => (
+            <Reveal
+              key={it.title}
+              as="li"
+              delay={i * 70}
+              className="group flex flex-col bg-zinc-950 p-7 transition-colors duration-200 hover:bg-zinc-900/70"
+            >
+              <span className="font-mono text-[11px] text-zinc-600 transition-colors duration-200 group-hover:text-zinc-400">
+                {it.n}
+              </span>
+              <h3 className="mt-5 text-base font-medium tracking-tight text-zinc-100">
+                {it.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                {it.body}
+              </p>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -517,7 +577,7 @@ function ProductPreview() {
                   <div>
                     <h3 className="text-base font-semibold text-zinc-100">Leads</h3>
                     <p className="mt-0.5 text-[12px] text-zinc-500">
-                      Gestiona y filtra los leads captados con IA desde Instagram.
+                      Gestiona y filtra los leads captados desde Instagram.
                     </p>
                   </div>
                   <div className="hidden items-center gap-2 sm:flex">
@@ -672,13 +732,13 @@ function HowItWorks() {
     },
     {
       n: "02",
-      title: "La IA analiza y puntúa",
-      body: "Cada perfil recibe una puntuación de 0 a 100 según su relevancia. Solo verás los leads que realmente valen la pena.",
+      title: "Cada perfil recibe un score",
+      body: "Puntuación de 0 a 100 según relevancia, engagement y señales comerciales. Solo verás los leads que valen la pena.",
     },
     {
       n: "03",
       title: "Mensaje listo para enviar",
-      body: "Claude genera un DM personalizado para cada lead, basado en su bio, nicho y contexto real.",
+      body: "Un primer mensaje personalizado para cada lead, basado en su bio, nicho y contexto real.",
     },
   ];
   return (
@@ -747,8 +807,8 @@ function ProblemSolution() {
   ];
   const solutions = [
     "Encuentra perfiles relevantes automáticamente",
-    "Prioriza los mejores leads con IA",
-    "Genera DMs personalizados en segundos",
+    "Prioriza cuentas con potencial real",
+    "Prepara mensajes personalizados en segundos",
     "Convierte Instagram en un canal de adquisición real",
   ];
   return (
@@ -822,8 +882,8 @@ function LeadIntelligence() {
       body: "FocuLead identifica cuentas que realmente encajan con tu cliente ideal.",
     },
     {
-      title: "La IA puntúa cada lead.",
-      body: "Analizamos engagement, nicho, actividad, bio, señales comerciales y relevancia.",
+      title: "Cada lead lleva un score claro.",
+      body: "Engagement, nicho, actividad, bio y señales comerciales se combinan en una puntuación de 0 a 100.",
     },
     {
       title: "Solo ves oportunidades reales.",
@@ -831,7 +891,7 @@ function LeadIntelligence() {
     },
     {
       title: "Mensajes contextualizados.",
-      body: "Cada DM se genera usando información real del perfil para aumentar respuestas.",
+      body: "Cada mensaje se prepara con información real del perfil para aumentar las respuestas.",
     },
   ];
   return (
@@ -842,8 +902,8 @@ function LeadIntelligence() {
             Así encuentra FocuLead los mejores leads
           </h2>
           <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-            La IA analiza señales reales de negocio para detectar perfiles con
-            alta probabilidad de convertirse en clientes.
+            Señales reales de negocio para detectar perfiles con alta
+            probabilidad de convertirse en clientes.
           </p>
         </div>
 
@@ -866,7 +926,7 @@ function LeadIntelligence() {
                 </div>
               </div>
               <span className="rounded-md border border-zinc-800 bg-zinc-950 px-2 py-1 text-[10px] uppercase tracking-wider text-zinc-500">
-                Lead intel
+                Lead score
               </span>
             </div>
 
@@ -874,7 +934,7 @@ function LeadIntelligence() {
             <div className="mt-6 border-t border-zinc-800 pt-5">
               <div className="flex items-baseline justify-between">
                 <span className="text-[10.5px] font-medium uppercase tracking-wider text-zinc-500">
-                  Score IA
+                  Lead score
                 </span>
                 <span className="text-[10.5px] text-emerald-400">High quality</span>
               </div>
@@ -930,7 +990,7 @@ function LeadIntelligence() {
             <div className="mt-5 flex items-center justify-between border-t border-zinc-800 pt-4">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950 px-2.5 py-1 text-[10.5px] text-zinc-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
-                Analizado con IA
+                Señales analizadas
               </span>
               <span className="text-[10.5px] text-zinc-600 tabular-nums">
                 hace 4 min
@@ -1105,7 +1165,7 @@ function FAQ() {
   const faqs = [
     {
       q: "¿Qué es un crédito?",
-      a: "Cada perfil que la IA analiza consume 1 crédito. Generar el DM consume 1 crédito adicional.",
+      a: "Cada perfil analizado consume 1 crédito. Preparar el mensaje consume 1 crédito adicional.",
     },
     {
       q: "¿De dónde vienen los leads?",
@@ -1117,7 +1177,7 @@ function FAQ() {
     },
     {
       q: "¿FocuLead envía los DMs por mí?",
-      a: "No. FocuLead genera el mensaje; tú decides cuándo y cómo enviarlo.",
+      a: "No. FocuLead prepara el mensaje; tú decides cuándo y cómo enviarlo.",
     },
     {
       q: "¿Funciona para cualquier nicho?",
@@ -1239,6 +1299,7 @@ function Index() {
         <Hero />
         <SocialProof />
         <ProductPreview />
+        <Outcomes />
         <ProblemSolution />
         <HowItWorks />
         <LeadIntelligence />
