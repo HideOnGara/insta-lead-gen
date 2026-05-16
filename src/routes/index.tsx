@@ -7,6 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import logoUrl from "@/assets/foculead-mark.png";
+import productSearch from "@/assets/product-search.png";
+import productLead from "@/assets/product-lead.png";
+import productAnalytics from "@/assets/product-analytics.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -248,22 +251,22 @@ function Hero() {
           </span>
         </div>
         <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold tracking-tight leading-[1.05] text-zinc-100 sm:text-5xl md:text-6xl">
-          <span className="block text-zinc-100">Tu próximo cliente</span>
-          <span className="block text-[#84cc16]">ya está en Instagram.</span>
+          <span className="block text-zinc-100">Instagram ya tiene</span>
+          <span className="block text-[#84cc16]">tus próximos clientes.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-zinc-400 sm:text-lg">
-          Encuentra perfiles relevantes, prioriza oportunidades reales y
-          contacta más rápido. Deja de buscar leads manualmente.
+          Encuentra leads, prioriza oportunidades y gestiona tu outreach desde
+          un solo lugar.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
             href={LOGIN_URL}
             className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset] transition-all duration-200 ease-out hover:bg-primary/95 hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_8px_24px_-8px_rgba(132,204,22,0.5)] active:translate-y-0 active:scale-100"
           >
-            Empieza gratis →
+            Empezar gratis →
           </a>
           <a
-            href="#como-funciona"
+            href="#outbound"
             className="text-sm text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
           >
             Ver demo ↓
