@@ -199,6 +199,133 @@ function Hero() {
   );
 }
 
+function ProductPreview() {
+  const leads = [
+    { user: "@clinicadentalmadrid", niche: "Clínica dental · Madrid", score: 92 },
+    { user: "@sonrisaperfecta", niche: "Estética dental · Madrid", score: 87 },
+    { user: "@dentalcenter_mad", niche: "Ortodoncia · Madrid", score: 81 },
+    { user: "@drsanchezdental", niche: "Odontología · Madrid", score: 76 },
+  ];
+  const menu = ["Dashboard", "Leads", "Campañas", "Créditos", "Ajustes"];
+  return (
+    <section className="border-b border-zinc-800 bg-zinc-950">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/40">
+          {/* window chrome */}
+          <div className="flex items-center gap-1.5 border-b border-zinc-800 px-4 py-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+            <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-12">
+            {/* Sidebar */}
+            <aside className="border-b border-zinc-800 p-5 md:col-span-3 md:border-b-0 md:border-r">
+              <div className="flex items-center gap-2">
+                <img src={logoUrl} alt="" width={20} height={20} className="h-5 w-5" />
+                <span className="text-sm font-semibold text-zinc-100">FocuLead</span>
+              </div>
+              <nav className="mt-6 flex flex-row gap-1 overflow-x-auto md:flex-col">
+                {menu.map((m, i) => (
+                  <span
+                    key={m}
+                    className={
+                      "shrink-0 rounded-md px-3 py-2 text-sm " +
+                      (i === 1
+                        ? "bg-zinc-800 text-zinc-100"
+                        : "text-zinc-400")
+                    }
+                  >
+                    {m}
+                  </span>
+                ))}
+              </nav>
+            </aside>
+
+            {/* Center: search + leads */}
+            <div className="border-b border-zinc-800 p-5 md:col-span-6 md:border-b-0 md:border-r md:p-6">
+              <div className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2.5">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-zinc-500"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+                <span className="text-sm text-zinc-200">Dentistas Madrid</span>
+              </div>
+              <div className="mt-5 flex items-center justify-between">
+                <p className="text-xs uppercase tracking-wider text-zinc-500">
+                  Leads encontrados
+                </p>
+                <p className="text-xs text-zinc-500">128 perfiles</p>
+              </div>
+              <ul className="mt-3 divide-y divide-zinc-800 rounded-lg border border-zinc-800">
+                {leads.map((l, i) => (
+                  <li
+                    key={l.user}
+                    className={
+                      "flex items-center gap-3 px-4 py-3 " +
+                      (i === 0 ? "bg-zinc-800/40" : "")
+                    }
+                  >
+                    <div className="h-9 w-9 shrink-0 rounded-full bg-zinc-800" />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-medium text-zinc-100">
+                        {l.user}
+                      </p>
+                      <p className="truncate text-xs text-zinc-400">{l.niche}</p>
+                    </div>
+                    <div className="flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-950 px-2 py-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-zinc-100" />
+                      <span className="text-xs font-medium text-zinc-200">
+                        {l.score}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: DM card */}
+            <div className="p-5 md:col-span-3 md:p-6">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium text-zinc-100">
+                  DM generado por IA
+                </p>
+              </div>
+              <div className="mt-4 rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-full bg-zinc-800" />
+                  <span className="text-xs text-zinc-400">@clinicadentalmadrid</span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                  Hola Marta, he visto vuestro perfil y creo que podríamos
+                  ayudaros a conseguir más reservas usando automatización y
+                  captación local…
+                </p>
+                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-2.5 py-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-zinc-100" />
+                  <span className="text-[11px] text-zinc-400">
+                    Generado con Claude
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   const steps = [
     {
@@ -494,6 +621,7 @@ function Index() {
       <Nav />
       <main>
         <Hero />
+        <ProductPreview />
         <HowItWorks />
         <ForWho />
         <Pricing />
