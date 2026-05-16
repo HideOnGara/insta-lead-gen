@@ -985,11 +985,12 @@ function Index() {
       <main>
         <Hero />
         <SocialProof />
-        <ProductPreview />
+        <ProductSearchShowcase />
         <Outcomes />
         <ProblemSolution />
         <HowItWorks />
-        <LeadIntelligence />
+        <LeadDetailShowcase />
+        <AnalyticsShowcase />
         <ForWho />
         <Pricing />
         <FAQ />
