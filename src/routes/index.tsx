@@ -372,7 +372,7 @@ function ProductPreview() {
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="animate-in fade-in slide-in-from-bottom-4 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 duration-700">
+        <Reveal className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]">
           {/* window chrome */}
           <div className="flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
             <div className="flex items-center gap-1.5">
