@@ -7,6 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import logoUrl from "@/assets/foculead-mark.png";
+import productSearchUrl from "@/assets/product-search.png";
+import productLeadDetailUrl from "@/assets/product-lead-detail.png";
+import productAnalyticsUrl from "@/assets/product-analytics.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
