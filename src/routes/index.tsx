@@ -406,16 +406,7 @@ function ProductSearchShowcase() {
         </Reveal>
         <Reveal delay={80} className="order-1 lg:order-2">
           <ProductFrame label="app.foculead.com / buscar-leads">
-            <div className="relative h-[520px] w-full overflow-hidden sm:h-[600px]">
-              <img
-                src={productSearchUrl}
-                alt="Pantalla de búsqueda de leads en FocuLead mostrando modos de búsqueda, score y nuevos leads"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-x-0 top-0 w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
-            </div>
+            <SearchMock />
           </ProductFrame>
         </Reveal>
       </div>
