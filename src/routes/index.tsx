@@ -1089,9 +1089,9 @@ function AnalyticsShowcase() {
     <section className="border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end lg:gap-16">
-          <Reveal>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
-              03 · Analytics
+          <Reveal className="group">
+            <span className="font-mono text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300 text-3xl">
+              ​
             </span>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
               Mide qué convierte.
