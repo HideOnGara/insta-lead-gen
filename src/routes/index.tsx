@@ -7,9 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import logoUrl from "@/assets/foculead-mark.png";
-import productSearchUrl from "@/assets/product-search.png";
-import productLeadDetailUrl from "@/assets/product-lead-detail.png";
-import productAnalyticsUrl from "@/assets/product-analytics.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -409,16 +406,7 @@ function ProductSearchShowcase() {
         </Reveal>
         <Reveal delay={80} className="order-1 lg:order-2">
           <ProductFrame label="app.foculead.com / buscar-leads">
-            <div className="relative h-[520px] w-full overflow-hidden sm:h-[600px]">
-              <img
-                src={productSearchUrl}
-                alt="Pantalla de búsqueda de leads en FocuLead mostrando modos de búsqueda, score y nuevos leads"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-x-0 top-0 w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
-            </div>
+            <SearchMock />
           </ProductFrame>
         </Reveal>
       </div>
@@ -451,6 +439,449 @@ function ProductFrame({
         <span className="w-12" />
       </div>
       {children}
+    </div>
+  );
+}
+
+/* ============ Product mocks (fictional data) ============ */
+
+function SearchMock() {
+  const modes = [
+    { k: "Seguidores", d: "Escanea seguidores de cuentas referencia", active: true },
+    { k: "Hashtag", d: "Busca publicaciones por hashtags", active: false },
+    { k: "Por nicho", d: "Combina cuentas y hashtags por nicho", active: false },
+  ];
+  const sources = [
+    { tag: "#marketingdigital", n: 8, pct: 32 },
+    { tag: "#saasgrowth", n: 5, pct: 20 },
+    { tag: "#ecommerce", n: 4, pct: 16 },
+    { tag: "#branding", n: 3, pct: 12 },
+  ];
+  const leads = [
+    { i: "N", u: "@northstudio.co", niche: "Branding", score: 84, tone: "good" },
+    { i: "G", u: "@growmetric", niche: "Marketing", score: 78, tone: "good" },
+    { i: "A", u: "@atelier.digital", niche: "Design", score: 71, tone: "warn" },
+    { i: "S", u: "@scalelabmedia", niche: "Growth", score: 66, tone: "warn" },
+    { i: "B", u: "@brandnexa", niche: "Strategy", score: 58, tone: "muted" },
+  ];
+  const toneClass = (t: string) =>
+    t === "good"
+      ? "text-emerald-400"
+      : t === "warn"
+        ? "text-amber-400"
+        : "text-zinc-400";
+  return (
+    <div className="bg-zinc-950 p-5 text-zinc-100 sm:p-6">
+      <h3 className="text-sm font-semibold">Buscar leads</h3>
+      <p className="mt-0.5 text-[11px] text-zinc-500">
+        Encuentra nuevos clientes en Instagram.
+      </p>
+
+      {/* Step 1 — modes */}
+      <div className="mt-5 flex items-center gap-2">
+        <span className="flex h-4 w-4 items-center justify-center rounded-full border border-zinc-700 text-[9px] text-zinc-400">
+          1
+        </span>
+        <span className="text-[11.5px] text-zinc-300">Modo de búsqueda</span>
+      </div>
+      <div className="mt-2.5 grid grid-cols-3 gap-2">
+        {modes.map((m) => (
+          <div
+            key={m.k}
+            className={
+              "rounded-md border p-2.5 transition-colors " +
+              (m.active
+                ? "border-lime-400/40 bg-lime-400/5"
+                : "border-zinc-800 bg-zinc-900/40")
+            }
+          >
+            <p className={"text-[11.5px] font-medium " + (m.active ? "text-zinc-100" : "text-zinc-300")}>
+              {m.k}
+            </p>
+            <p className="mt-0.5 text-[10px] leading-snug text-zinc-500">{m.d}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Step 2 — accounts */}
+      <div className="mt-4 flex items-center gap-2">
+        <span className="flex h-4 w-4 items-center justify-center rounded-full border border-zinc-700 text-[9px] text-zinc-400">
+          2
+        </span>
+        <span className="text-[11.5px] text-zinc-300">Cuentas a escanear</span>
+      </div>
+      <div className="mt-2 flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/40 px-2.5 py-1.5 text-[11.5px] text-zinc-400">
+        @northstudio.co, @growmetric, @atelier.digital
+      </div>
+
+      {/* Iniciar */}
+      <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-primary py-2 text-[12px] font-medium text-primary-foreground transition-colors hover:bg-primary/95">
+        ▶ Iniciar búsqueda
+      </button>
+
+      {/* Completado */}
+      <div className="mt-3 flex items-center gap-2 rounded-md border border-emerald-500/20 bg-emerald-500/5 px-3 py-2">
+        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 text-[9px] text-emerald-400">
+          ✓
+        </span>
+        <span className="text-[11.5px] font-medium text-emerald-300">
+          Run completado · +25 leads nuevos
+        </span>
+      </div>
+
+      {/* Por fuente */}
+      <p className="mt-5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+        Por fuente
+      </p>
+      <ul className="mt-2 space-y-1.5">
+        {sources.map((s) => (
+          <li key={s.tag} className="flex items-center gap-2 text-[11px]">
+            <span className="w-28 shrink-0 text-zinc-300">{s.tag}</span>
+            <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-800">
+              <div
+                className="h-full rounded-full bg-lime-400/80"
+                style={{ width: `${s.pct * 2.4}%` }}
+              />
+            </div>
+            <span className="w-12 shrink-0 text-right text-zinc-500 tabular-nums">
+              {s.n} · {s.pct}%
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Nuevos leads */}
+      <div className="mt-5 flex items-center justify-between">
+        <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+          Nuevos leads
+        </p>
+        <span className="text-[10.5px] text-zinc-500">Ver todos (25)</span>
+      </div>
+      <div className="mt-2 overflow-hidden rounded-md border border-zinc-800">
+        <div className="grid grid-cols-[1.4fr_0.9fr_0.5fr] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-3 py-1.5 font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          <span>Usuario</span>
+          <span>Nicho</span>
+          <span className="text-right">Score</span>
+        </div>
+        <ul className="divide-y divide-zinc-800/70">
+          {leads.map((l) => (
+            <li
+              key={l.u}
+              className="grid grid-cols-[1.4fr_0.9fr_0.5fr] items-center gap-2 px-3 py-1.5"
+            >
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[9.5px] font-medium text-zinc-300">
+                  {l.i}
+                </span>
+                <span className="truncate text-[11.5px] text-zinc-100">{l.u}</span>
+              </div>
+              <span className="inline-flex w-fit items-center rounded bg-zinc-900 px-1.5 py-0.5 text-[10px] text-zinc-300 ring-1 ring-inset ring-zinc-800">
+                {l.niche}
+              </span>
+              <span
+                className={
+                  "text-right text-[11.5px] font-semibold tabular-nums " +
+                  toneClass(l.tone)
+                }
+              >
+                {l.score}/100
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function LeadDetailMock() {
+  return (
+    <div className="bg-zinc-950 p-5 text-zinc-100 sm:p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-2.5">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[12px] font-medium text-zinc-300">
+            C
+          </span>
+          <div className="min-w-0">
+            <p className="truncate text-[13px] font-semibold text-zinc-100">
+              @clinicaluminae
+            </p>
+            <p className="text-[10.5px] text-zinc-500">18.420 followers</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[10.5px] text-zinc-300">
+            Archive
+          </span>
+          <span className="rounded-md border border-zinc-800 bg-zinc-900 px-2 py-1 text-[10.5px] text-zinc-300">
+            Instagram ↗
+          </span>
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div className="mt-5 border-t border-zinc-800 pt-4">
+        <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          Bio
+        </p>
+        <p className="mt-1.5 text-[12px] leading-relaxed text-zinc-300">
+          Clínica estética en Madrid · Tratamientos faciales y corporales
+          personalizados · Reservas online · +6 años acompañando a más de
+          3.000 pacientes.
+        </p>
+      </div>
+
+      {/* Status */}
+      <div className="mt-4 border-t border-zinc-800 pt-4">
+        <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          Status
+        </p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {["New", "Contacted", "Replied", "Converted"].map((s, i) => (
+            <span
+              key={s}
+              className={
+                "rounded-md px-2 py-0.5 text-[10.5px] " +
+                (i === 0
+                  ? "bg-zinc-100 text-zinc-900 font-medium"
+                  : "border border-zinc-800 text-zinc-400")
+              }
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Follow-up */}
+      <div className="mt-4 border-t border-zinc-800 pt-4">
+        <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          Follow-up
+        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <div className="flex-1 rounded-md border border-zinc-800 bg-zinc-900/40 px-2.5 py-1.5 text-[11.5px] text-zinc-400">
+            22 / 05 / 2026
+          </div>
+          <span className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1.5 text-[10.5px] text-zinc-300">
+            Guardar
+          </span>
+        </div>
+      </div>
+
+      {/* Analysis */}
+      <div className="mt-4 border-t border-zinc-800 pt-4">
+        <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          Lead analysis
+        </p>
+        <div className="mt-2.5 space-y-1.5 text-[11.5px]">
+          <div className="flex items-center justify-between">
+            <span className="text-zinc-500">Nicho</span>
+            <span className="rounded bg-zinc-900 px-1.5 py-0.5 text-[10.5px] text-zinc-200 ring-1 ring-inset ring-zinc-800">
+              Estética & Beauty
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-zinc-500">Engagement</span>
+            <span className="font-medium text-emerald-400">12.4%</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-zinc-500">Lead score</span>
+            <span className="inline-flex items-center gap-1 rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[10.5px] font-semibold text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              84/100
+            </span>
+          </div>
+        </div>
+        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-zinc-800">
+          <div className="h-full w-[84%] rounded-full bg-emerald-500" />
+        </div>
+      </div>
+
+      {/* Message */}
+      <div className="mt-4 border-t border-zinc-800 pt-4">
+        <div className="flex items-center justify-between">
+          <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+            Outreach message
+          </p>
+          <div className="flex items-center gap-1">
+            <span className="rounded bg-zinc-100 px-1.5 py-0.5 text-[9.5px] font-medium text-zinc-900">
+              ES
+            </span>
+            <span className="rounded border border-zinc-800 px-1.5 py-0.5 text-[9.5px] text-zinc-400">
+              EN
+            </span>
+          </div>
+        </div>
+        <div className="mt-2 rounded-md border border-zinc-800 bg-zinc-900/60 p-3 text-[12px] leading-relaxed text-zinc-100">
+          Hola Marta, vi vuestro contenido sobre clínicas estéticas y creo
+          que podríamos ayudaros a generar más reservas usando automatización
+          y captación local. ¿Te encaja una llamada rápida esta semana? 🚀
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="mt-4 grid grid-cols-[1fr_2fr] gap-2">
+        <button className="rounded-md border border-zinc-800 bg-zinc-900 py-2 text-[11.5px] font-medium text-zinc-200 transition-colors hover:bg-zinc-800">
+          Copiar
+        </button>
+        <button className="rounded-md bg-primary py-2 text-[11.5px] font-semibold text-primary-foreground transition-colors hover:bg-primary/95">
+          Enviar DM
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AnalyticsMock() {
+  const kpis = [
+    { v: "541", l: "Leads totales", tone: "text-zinc-100" },
+    { v: "62%", l: "Tasa contacto", tone: "text-sky-400" },
+    { v: "12%", l: "Tasa respuesta", tone: "text-emerald-400" },
+    { v: "4.3%", l: "Tasa conversión", tone: "text-lime-400" },
+  ];
+  const funnel = [
+    { k: "Generados", n: 541, w: 100 },
+    { k: "Contactados", n: 337, w: 62 },
+    { k: "Respondidos", n: 64, w: 18 },
+    { k: "Convertidos", n: 23, w: 7 },
+  ];
+  const niches = [
+    { k: "Estética & Beauty", n: 92, r: "14%", c: "5.2%" },
+    { k: "Marketing & Growth", n: 78, r: "11%", c: "4.6%" },
+    { k: "E-commerce & Retail", n: 64, r: "9%", c: "3.8%" },
+    { k: "Coaching & Education", n: 58, r: "10%", c: "4.1%" },
+    { k: "Real Estate", n: 47, r: "7%", c: "2.9%" },
+  ];
+  // simple chart polyline
+  const pts = [12, 28, 18, 42, 36, 58, 49, 72, 64];
+  const path = pts
+    .map((p, i) => `${(i / (pts.length - 1)) * 100},${100 - p}`)
+    .join(" ");
+  return (
+    <div className="bg-zinc-950 p-5 text-zinc-100 sm:p-6">
+      {/* Header */}
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-sm font-semibold">Analytics</h3>
+          <p className="mt-0.5 text-[11px] text-zinc-500">
+            Rendimiento del pipeline y conversión.
+          </p>
+        </div>
+        <div className="flex items-center gap-1">
+          {["30d", "90d", "1a"].map((t, i) => (
+            <span
+              key={t}
+              className={
+                "rounded-md px-2 py-0.5 text-[10.5px] " +
+                (i === 1
+                  ? "bg-lime-400 font-medium text-zinc-950"
+                  : "border border-zinc-800 text-zinc-400")
+              }
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* KPIs */}
+      <ul className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-zinc-800 bg-zinc-800 sm:grid-cols-4">
+        {kpis.map((k) => (
+          <li key={k.l} className="bg-zinc-950 px-3 py-3">
+            <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+              {k.l}
+            </p>
+            <p className={"mt-1 text-2xl font-semibold tracking-tight tabular-nums " + k.tone}>
+              {k.v}
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-[1.3fr_1fr]">
+        {/* Funnel */}
+        <div className="rounded-md border border-zinc-800 bg-zinc-950 p-3.5">
+          <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+            Embudo de conversión
+          </p>
+          <ul className="mt-3 space-y-2">
+            {funnel.map((f) => (
+              <li key={f.k} className="flex items-center gap-2 text-[11px]">
+                <span className="w-24 shrink-0 text-zinc-400">{f.k}</span>
+                <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-zinc-800">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-lime-400 to-emerald-500"
+                    style={{ width: `${f.w}%` }}
+                  />
+                </div>
+                <span className="w-16 shrink-0 text-right text-zinc-300 tabular-nums">
+                  {f.n} <span className="text-zinc-600">({f.w}%)</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Velocidad / chart */}
+        <div className="rounded-md border border-zinc-800 bg-zinc-950 p-3.5">
+          <p className="font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+            Leads por día
+          </p>
+          <div className="mt-2">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-20 w-full">
+              <defs>
+                <linearGradient id="lg" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#84cc16" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#84cc16" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <polygon
+                points={`0,100 ${path} 100,100`}
+                fill="url(#lg)"
+              />
+              <polyline
+                points={path}
+                fill="none"
+                stroke="#a3e635"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </div>
+          <div className="mt-1 flex items-baseline justify-between text-[10.5px] text-zinc-500">
+            <span>05-08</span>
+            <span className="text-zinc-300">
+              <span className="font-semibold tabular-nums text-zinc-100">+18%</span> vs prev.
+            </span>
+            <span>05-16</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Por nicho */}
+      <div className="mt-3 overflow-hidden rounded-md border border-zinc-800">
+        <div className="grid grid-cols-[1.6fr_0.6fr_0.7fr_0.8fr] gap-2 border-b border-zinc-800 bg-zinc-900/40 px-3 py-1.5 font-mono text-[9.5px] uppercase tracking-wider text-zinc-500">
+          <span>Nicho</span>
+          <span className="text-right">Leads</span>
+          <span className="text-right">Resp.</span>
+          <span className="text-right">Conv.</span>
+        </div>
+        <ul className="divide-y divide-zinc-800/70">
+          {niches.map((n) => (
+            <li
+              key={n.k}
+              className="grid grid-cols-[1.6fr_0.6fr_0.7fr_0.8fr] items-center gap-2 px-3 py-1.5 text-[11px]"
+            >
+              <span className="truncate text-zinc-200">{n.k}</span>
+              <span className="text-right text-zinc-300 tabular-nums">{n.n}</span>
+              <span className="text-right text-emerald-400 tabular-nums">{n.r}</span>
+              <span className="text-right text-lime-400 tabular-nums">{n.c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -613,16 +1044,7 @@ function LeadDetailShowcase() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
         <Reveal>
           <ProductFrame label="app.foculead.com / lead">
-            <div className="relative h-[560px] w-full overflow-hidden sm:h-[640px]">
-              <img
-                src={productLeadDetailUrl}
-                alt="Vista de detalle de un lead en FocuLead con bio, score, engagement y mensaje de outreach"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-x-0 top-0 w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
-            </div>
+            <LeadDetailMock />
           </ProductFrame>
         </Reveal>
         <Reveal delay={80}>
@@ -698,16 +1120,7 @@ function AnalyticsShowcase() {
 
         <Reveal delay={120} className="mt-14">
           <ProductFrame label="app.foculead.com / analytics">
-            <div className="relative w-full overflow-hidden bg-zinc-950">
-              <img
-                src={productAnalyticsUrl}
-                alt="Pantalla de analytics de FocuLead con funnel de conversión, velocidad y rendimiento por nicho"
-                loading="lazy"
-                decoding="async"
-                className="block w-full select-none"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-950/90 to-transparent" />
-            </div>
+            <AnalyticsMock />
           </ProductFrame>
         </Reveal>
       </div>
