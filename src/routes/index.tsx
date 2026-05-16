@@ -592,7 +592,7 @@ function ProductPreview() {
               </ul>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
