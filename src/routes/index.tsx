@@ -11,34 +11,34 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "FocuLead | Generador de Leads de Instagram con IA" },
+      { title: "FocuLead — Encuentra clientes en Instagram con IA" },
       {
         name: "description",
         content:
-          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
+          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
       },
-      { property: "og:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
+      { property: "og:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
       {
         property: "og:description",
         content:
-          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
+          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://foculead.com/" },
       { property: "og:image", content: "https://foculead.com/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
       { property: "og:image:alt", content: "FocuLead — Leads de Instagram con IA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "FocuLead | Generador de Leads de Instagram con IA" },
+      { name: "twitter:title", content: "FocuLead — Encuentra clientes en Instagram con IA" },
       {
         name: "twitter:description",
         content:
-          "Genera leads cualificados de Instagram con IA: analiza perfiles, puntúa prospectos y crea DMs personalizados. Empieza gratis con 100 créditos.",
+          "Genera leads desde Instagram automáticamente con IA. Encuentra perfiles relevantes, prioriza oportunidades y crea DMs personalizados en segundos.",
       },
       { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://foculead.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -324,7 +324,7 @@ function ProductPreview() {
             <aside className="hidden flex-col justify-between border-r border-zinc-800 bg-zinc-950 md:flex">
               <div>
                 <div className="flex items-center gap-2 border-b border-zinc-800 px-4 py-3.5">
-                  <img src={logoUrl} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+                  <img src={logoUrl} alt="" width={18} height={18} loading="lazy" decoding="async" className="h-[18px] w-[18px]" />
                   <div className="flex flex-col leading-tight">
                     <span className="text-[13px] font-semibold text-zinc-100">FocuLead</span>
                     <span className="text-[10px] text-zinc-500">Workspace</span>
