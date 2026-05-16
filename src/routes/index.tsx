@@ -623,15 +623,16 @@ function HowItWorks() {
           Tres pasos. Cero búsquedas manuales.
         </h2>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {steps.map((s) => (
-            <div
+          {steps.map((s, i) => (
+            <Reveal
               key={s.n}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6"
+              delay={i * 80}
+              className="group rounded-xl border border-zinc-800 bg-zinc-900/60 p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900 hover:shadow-[0_12px_30px_-15px_rgba(0,0,0,0.6)]"
             >
-              <div className="text-sm font-mono text-zinc-400">{s.n}</div>
+              <div className="text-sm font-mono text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300">{s.n}</div>
               <h3 className="mt-4 text-lg font-medium text-zinc-100">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{s.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
