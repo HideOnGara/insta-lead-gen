@@ -279,17 +279,9 @@ function Hero() {
 
 function SocialProof() {
   const metrics = [
-    { value: "12.000+", label: "leads encontrados" },
+    { value: "12.000+", label: "perfiles analizados" },
     { value: "3.500+", label: "mensajes preparados" },
-    { value: "127", label: "campañas activas" },
-  ];
-  const brands = [
-    "North Studio",
-    "Leadframe",
-    "Growth Dept.",
-    "Atelier Digital",
-    "ScaleLab",
-    "Nova Agency",
+    { value: "526", label: "leads encontrados hoy" },
   ];
   return (
     <section className="border-b border-zinc-800 bg-zinc-950">
@@ -299,7 +291,7 @@ function SocialProof() {
           {metrics.map((m) => (
             <div
               key={m.label}
-              className="flex flex-col items-center justify-center px-6 py-6 text-center sm:py-2"
+              className="flex flex-col items-center justify-center px-6 py-6 text-center transition-colors duration-200 sm:py-2"
             >
               <div className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">
                 {m.value}
@@ -311,24 +303,10 @@ function SocialProof() {
           ))}
         </div>
 
-        {/* Brands */}
-        <div className="mt-16 overflow-x-auto">
-          <ul className="flex min-w-max items-center justify-center gap-x-10 gap-y-3 px-2 sm:flex-wrap sm:gap-x-12">
-            {brands.map((b) => (
-              <li
-                key={b}
-                className="whitespace-nowrap text-sm uppercase tracking-[0.18em] text-zinc-500 transition-colors duration-200 hover:text-zinc-300"
-              >
-                {b}
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Trust line */}
-        <p className="mx-auto mt-12 max-w-xl text-center text-sm text-zinc-400">
-          Agencias, freelancers y consultores ya usan FocuLead para encontrar
-          clientes en Instagram.
+        <p className="mx-auto mt-14 max-w-xl text-center text-sm text-zinc-400">
+          Equipos de prospección usan FocuLead para encontrar clientes en
+          Instagram.
         </p>
       </div>
     </section>
