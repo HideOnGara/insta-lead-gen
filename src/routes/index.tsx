@@ -158,15 +158,15 @@ function Reveal({
   }, []);
 
   const style = delay ? { transitionDelay: `${delay}ms` } : undefined;
-  // @ts-expect-error dynamic tag
+  const Component = Tag as React.ElementType;
   return (
-    <Tag
-      ref={ref}
+    <Component
+      ref={ref as React.Ref<HTMLElement>}
       style={style}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }
 
