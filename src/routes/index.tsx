@@ -674,7 +674,7 @@ function ProblemSolution() {
 function LeadIntelligence() {
   const signals = [
     { label: "Engagement alto", value: "4.0%" },
-    { label: "Nicho relevante", value: "Branding & Creative" },
+    { label: "Nicho relevante", value: "Marketing & Growth" },
     { label: "Bio optimizada", value: "Describe claramente su servicio" },
     { label: "Potencial B2B", value: "Alta probabilidad de compra" },
     { label: "Audiencia activa", value: "553 publicaciones" },
@@ -717,14 +717,14 @@ function LeadIntelligence() {
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-[12px] font-medium text-zinc-300">
-                  C
+                  G
                 </span>
                 <div className="min-w-0">
                   <p className="truncate text-[13.5px] font-medium text-zinc-100">
-                    @creativeworks.dk
+                    @growmetriclab
                   </p>
                   <p className="truncate text-[11.5px] text-zinc-500">
-                    Branding & Creative
+                    Marketing & Growth
                   </p>
                 </div>
               </div>
