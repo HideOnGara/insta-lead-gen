@@ -69,7 +69,7 @@ export const Route = createFileRoute("/")({
               name: "¿Qué es un crédito?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Cada perfil que la IA analiza consume 1 crédito. Generar el DM consume 1 crédito adicional.",
+                text: "Un crédito es un perfil analizado. Las búsquedas por ubicación y por hashtag —las que usa la mayoría— consumen 2 créditos por perfil; las de seguidores, 1. El DM va incluido: solo cuesta 1 crédito extra si pides regenerarlo.",
               },
             },
             {
@@ -272,14 +272,14 @@ function Pricing() {
     {
       name: "Free",
       price: "0€",
-      features: ["100 créditos/mes", "1 usuario", "Perfecto para probar"],
+      features: ["Tu primera búsqueda, gratis", "1 usuario", "Sin tarjeta"],
       cta: "Empieza gratis",
       plan: null,
     },
     {
       name: "Starter",
       price: "29€",
-      features: ["2.000 créditos/mes", "Hasta 3 usuarios", "Búsquedas programadas"],
+      features: ["2.000 créditos/mes (~500 leads)", "Hasta 3 usuarios", "Búsquedas programadas"],
       cta: "Elegir Starter",
       popular: true,
       plan: "starter",
@@ -287,7 +287,7 @@ function Pricing() {
     {
       name: "Pro",
       price: "79€",
-      features: ["6.000 créditos/mes", "Hasta 10 usuarios", "Todo lo de Starter"],
+      features: ["6.000 créditos/mes (~1.500 leads)", "Hasta 10 usuarios", "Todo lo de Starter"],
       cta: "Elegir Pro",
       plan: "pro",
     },
@@ -295,7 +295,7 @@ function Pricing() {
       name: "Business",
       price: "199€",
       features: [
-        "15.000 créditos/mes",
+        "15.000 créditos/mes (~3.800 leads)",
         "Hasta 100 usuarios",
         "Para equipos y agencias",
       ],
@@ -361,7 +361,7 @@ function FAQ() {
   const faqs = [
     {
       q: "¿Qué es un crédito?",
-      a: "Cada perfil que la IA analiza consume 1 crédito. Generar el DM consume 1 crédito adicional.",
+      a: "Un crédito es un perfil analizado. Las búsquedas por ubicación y por hashtag —las que usa la mayoría— consumen 2 créditos por perfil; las de seguidores, 1. El DM va incluido: solo cuesta 1 crédito extra si pides regenerarlo.",
     },
     {
       q: "¿De dónde vienen los leads?",
@@ -415,7 +415,7 @@ function FinalCTA() {
           Empieza hoy.
           <br />
           <span className="text-zinc-500">
-            Los primeros 100 créditos son gratis.
+            Tu primera búsqueda es gratis.
           </span>
         </h2>
         <a
