@@ -53,9 +53,42 @@ export const Route = createFileRoute("/")({
             "Herramienta de prospección que encuentra leads cualificados en Instagram, prioriza oportunidades reales y prepara el primer mensaje personalizado.",
           offers: [
             { "@type": "Offer", name: "Free", price: "0", priceCurrency: "EUR" },
-            { "@type": "Offer", name: "Starter", price: "29", priceCurrency: "EUR" },
-            { "@type": "Offer", name: "Pro", price: "79", priceCurrency: "EUR" },
-            { "@type": "Offer", name: "Business", price: "199", priceCurrency: "EUR" },
+            {
+              "@type": "Offer",
+              name: "Starter",
+              price: "29",
+              priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: "29",
+                priceCurrency: "EUR",
+                valueAddedTaxIncluded: false,
+              },
+            },
+            {
+              "@type": "Offer",
+              name: "Pro",
+              price: "79",
+              priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: "79",
+                priceCurrency: "EUR",
+                valueAddedTaxIncluded: false,
+              },
+            },
+            {
+              "@type": "Offer",
+              name: "Business",
+              price: "199",
+              priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: "199",
+                priceCurrency: "EUR",
+                valueAddedTaxIncluded: false,
+              },
+            },
           ],
           provider: { "@type": "Organization", name: "FocuLead" },
         }),
@@ -1172,14 +1205,14 @@ function Pricing() {
   const plans: Plan[] = [
     {
       name: "Free",
-      price: "0€",
+      price: "0 €",
       features: ["Tu primera búsqueda, gratis", "1 usuario", "Sin tarjeta"],
       cta: "Empieza gratis",
       plan: null,
     },
     {
       name: "Starter",
-      price: "29€",
+      price: "29 €",
       features: ["2.000 créditos/mes (~500 leads)", "Hasta 3 usuarios", "Búsquedas programadas"],
       cta: "Elegir Starter",
       popular: true,
@@ -1187,14 +1220,14 @@ function Pricing() {
     },
     {
       name: "Pro",
-      price: "79€",
+      price: "79 €",
       features: ["6.000 créditos/mes (~1.500 leads)", "Hasta 10 usuarios", "Todo lo de Starter"],
       cta: "Elegir Pro",
       plan: "pro",
     },
     {
       name: "Business",
-      price: "199€",
+      price: "199 €",
       features: [
         "15.000 créditos/mes (~3.800 leads)",
         "Hasta 100 usuarios",
@@ -1232,7 +1265,9 @@ function Pricing() {
                 <span className="text-4xl font-semibold tracking-tight text-zinc-100">
                   {p.price}
                 </span>
-                <span className="text-sm text-zinc-400">/mes</span>
+                <span className="text-sm text-zinc-400">
+                  /mes{p.plan ? " + IVA" : ""}
+                </span>
               </div>
               <ul className="mt-6 space-y-3 text-sm text-zinc-300">
                 {p.features.map((f) => (
