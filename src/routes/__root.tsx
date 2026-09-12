@@ -111,7 +111,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "FocuLead",
           url: "https://foculead.com",
           email: "hola@foculead.com",
-          founder: { "@type": "Person", name: "Amaya Oses Relloso" },
           address: {
             "@type": "PostalAddress",
             addressLocality: "Madrid",

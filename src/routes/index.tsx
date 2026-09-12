@@ -1395,7 +1395,8 @@ function Footer() {
             <span>FocuLead</span>
           </div>
           <p className="mt-2 max-w-md text-xs text-zinc-400">
-            © 2026 FocuLead — Amaya Oses Relloso · NIF 73418483E · Madrid
+            © 2026 FocuLead · Madrid, España · Datos del titular en el{" "}
+            <a href="https://app.foculead.com/legal" className="underline underline-offset-2 hover:text-zinc-100">aviso legal</a>
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-zinc-400">
