@@ -1232,7 +1232,9 @@ function Pricing() {
                 <span className="text-4xl font-semibold tracking-tight text-zinc-100">
                   {p.price}
                 </span>
-                <span className="text-sm text-zinc-400">/mes</span>
+                <span className="text-sm text-zinc-400">
+                  /mes{p.plan ? " + IVA" : ""}
+                </span>
               </div>
               <ul className="mt-6 space-y-3 text-sm text-zinc-300">
                 {p.features.map((f) => (
