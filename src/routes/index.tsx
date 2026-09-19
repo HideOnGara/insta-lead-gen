@@ -12,30 +12,30 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "FocuLead — Encuentra tus próximos clientes en Instagram" },
+      { title: "FocuLead — Consigue clientes en Instagram" },
       {
         name: "description",
         content:
-          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
+          "Encuentra negocios de tu sector y tu ciudad que encajan con lo que vendes, confirmados con IA y con el primer mensaje escrito. Convierte Instagram en tu canal de clientes.",
       },
-      { property: "og:title", content: "FocuLead — Encuentra tus próximos clientes en Instagram" },
+      { property: "og:title", content: "FocuLead — Consigue clientes en Instagram" },
       {
         property: "og:description",
         content:
-          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
+          "Encuentra negocios de tu sector y tu ciudad que encajan con lo que vendes, confirmados con IA y con el primer mensaje escrito. Convierte Instagram en tu canal de clientes.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://foculead.com/" },
       { property: "og:image", content: "https://foculead.com/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "FocuLead — Leads de Instagram" },
+      { property: "og:image:alt", content: "FocuLead — Clientes desde Instagram" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "FocuLead — Encuentra tus próximos clientes en Instagram" },
+      { name: "twitter:title", content: "FocuLead — Consigue clientes en Instagram" },
       {
         name: "twitter:description",
         content:
-          "Encuentra perfiles relevantes, prioriza oportunidades reales y prepara mensajes personalizados. Convierte Instagram en un canal de adquisición.",
+          "Encuentra negocios de tu sector y tu ciudad que encajan con lo que vendes, confirmados con IA y con el primer mensaje escrito. Convierte Instagram en tu canal de clientes.",
       },
       { name: "twitter:image", content: "https://foculead.com/og-image.jpg" },
     ],
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web",
           description:
-            "Herramienta de prospección que encuentra leads cualificados en Instagram, prioriza oportunidades reales y prepara el primer mensaje personalizado.",
+            "Herramienta para conseguir clientes en Instagram: encuentra negocios de tu sector y tu ciudad, confirma con IA que encajan con lo que vendes y prepara el primer mensaje personalizado.",
           offers: [
             { "@type": "Offer", name: "Free", price: "0", priceCurrency: "EUR" },
             {
@@ -109,7 +109,15 @@ export const Route = createFileRoute("/")({
             },
             {
               "@type": "Question",
-              name: "¿De dónde vienen los leads?",
+              name: "¿En qué se diferencia de comprar una lista de contactos?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Una lista te da emails. FocuLead te da negocios que encajan con lo que vendes, confirmados con IA uno a uno, con el primer mensaje ya escrito y el seguimiento hasta que son clientes.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "¿De dónde salen los negocios?",
               acceptedAnswer: {
                 "@type": "Answer",
                 text: "De perfiles públicos de Instagram. FocuLead no accede a datos privados.",
@@ -277,7 +285,7 @@ function Hero() {
               height={14}
               className="h-3.5 w-3.5"
             />
-            Prospección para Instagram
+            Clientes desde Instagram
           </span>
         </div>
         <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold tracking-tight leading-[1.05] text-zinc-100 sm:text-5xl md:text-6xl">
@@ -285,8 +293,9 @@ function Hero() {
           <span className="block text-[#84cc16]">ya está en Instagram.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-zinc-400 sm:text-lg">
-          Encuentra perfiles relevantes, prioriza oportunidades reales y
-          contacta más rápido. Deja de buscar leads manualmente.
+          Dinos a qué negocios vendes y en qué ciudad. FocuLead encuentra los
+          que encajan, confirma con IA que son negocios reales y te escribe el
+          primer mensaje. Tú te ocupas de cerrar.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
@@ -338,8 +347,8 @@ function SocialProof() {
 
         {/* Trust line */}
         <p className="mx-auto mt-14 max-w-xl text-center text-sm text-zinc-400">
-          Equipos de prospección usan FocuLead para encontrar clientes en
-          Instagram.
+          Nació dentro de una agencia de Madrid, que lo usa cada día para
+          conseguir sus propios clientes.
         </p>
       </div>
     </section>
@@ -350,23 +359,23 @@ function Outcomes() {
   const items = [
     {
       n: "01",
-      title: "Menos tiempo buscando",
-      body: "Deja de revisar perfiles manualmente.",
+      title: "Más tiempo cerrando",
+      body: "Deja de revisar perfiles a mano y dedica las horas a vender.",
     },
     {
       n: "02",
-      title: "Más conversaciones",
-      body: "Contacta perfiles relevantes cada día.",
+      title: "Solo negocios reales",
+      body: "La IA descarta cuentas personales, privadas y perfiles que no te van a comprar.",
     },
     {
       n: "03",
-      title: "Mejores leads",
-      body: "Prioriza cuentas con potencial real.",
+      title: "Clientes de tu zona",
+      body: "Busca por ciudad y sector: inmobiliarias en Madrid, clínicas en Valencia.",
     },
     {
       n: "04",
-      title: "Pipeline constante",
-      body: "Convierte Instagram en un canal de prospección.",
+      title: "Conversaciones cada semana",
+      body: "Un flujo constante de negocios a los que escribir, sin empezar de cero.",
     },
   ];
   return (
@@ -377,8 +386,8 @@ function Outcomes() {
             Qué consigues con FocuLead
           </h2>
           <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-            Resultados concretos, no promesas. Una herramienta operativa para
-            llenar tu pipeline cada semana.
+            No es una lista de contactos. Son negocios que encajan con lo que
+            vendes, listos para empezar una conversación.
           </p>
         </div>
         <ul className="mt-14 grid gap-px overflow-hidden rounded-xl border border-zinc-800 bg-zinc-800 sm:grid-cols-2 lg:grid-cols-4">
@@ -412,18 +421,19 @@ function ProductSearchShowcase() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
         <Reveal className="order-2 lg:order-1">
           <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
-            01 · Buscar leads
+            01 · Buscar clientes
           </span>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-            Encuentra perfiles relevantes.
+            Encuentra negocios que encajan contigo.
           </h2>
           <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-            Busca por hashtag, nicho o cuentas similares. Cada run analiza
-            cientos de perfiles, los puntúa y los entrega listos en tu pipeline.
+            Busca por ciudad y sector, por hashtag o por cuentas similares. Cada
+            búsqueda analiza cientos de perfiles, descarta los que no son
+            negocios y te entrega los que encajan, ordenados por prioridad.
           </p>
           <ul className="mt-8 grid gap-px overflow-hidden rounded-xl border border-zinc-800 bg-zinc-800 sm:grid-cols-2">
             {[
-              { k: "Modos", v: "Seguidores · Hashtag · Nicho" },
+              { k: "Modos", v: "Ciudad · Hashtag · Seguidores" },
               { k: "Última run", v: "+15 leads nuevos" },
               { k: "Score medio", v: "62 / 100" },
               { k: "Coste estimado", v: "~338 créditos" },
@@ -923,25 +933,25 @@ function HowItWorks() {
   const steps = [
     {
       n: "01",
-      title: "Dinos a quién buscas",
-      body: "Elige tu nicho y mercado. FocuLead hace el resto.",
+      title: "Dinos a quién vendes",
+      body: "Tu sector y tu ciudad. Por ejemplo: clínicas estéticas en Madrid. FocuLead hace el resto.",
     },
     {
       n: "02",
-      title: "Cada perfil recibe un score",
-      body: "Puntuación de 0 a 100 según relevancia, engagement y señales comerciales. Solo verás los leads que valen la pena.",
+      title: "La IA filtra los que encajan",
+      body: "Confirma que cada perfil es un negocio real y le da una puntuación de 0 a 100 según relevancia, engagement y señales comerciales. Solo ves los que merecen tu tiempo.",
     },
     {
       n: "03",
-      title: "Mensaje listo para enviar",
-      body: "Un primer mensaje personalizado para cada lead, basado en su bio, nicho y contexto real.",
+      title: "Escríbeles y cierra",
+      body: "Cada negocio llega con un primer mensaje personalizado, basado en su bio, su sector y su contexto real. Tú decides cuándo enviarlo.",
     },
   ];
   return (
     <section id="como-funciona" className="border-b border-zinc-800">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-          Tres pasos. Cero búsquedas manuales.
+          De Instagram a tu próximo cliente, en tres pasos.
         </h2>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {steps.map((s, i) => (
@@ -973,7 +983,7 @@ function ProblemSolution() {
       ),
     },
     {
-      title: "Leads poco cualificados",
+      title: "Listas llenas de cuentas que nunca comprarán",
       icon: (
         <>
           <path d="M3 3l18 18" />
@@ -1002,17 +1012,17 @@ function ProblemSolution() {
     },
   ];
   const solutions = [
-    "Encuentra perfiles relevantes automáticamente",
-    "Prioriza cuentas con potencial real",
-    "Prepara mensajes personalizados en segundos",
-    "Convierte Instagram en un canal de adquisición real",
+    "Encuentra negocios de tu sector y tu ciudad",
+    "Confirma con IA que son negocios reales",
+    "Escribe el primer mensaje por ti, con su contexto",
+    "Convierte Instagram en tu canal de clientes",
   ];
   return (
     <section className="border-b border-zinc-800">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-            La prospección manual no escala.
+            Conseguir clientes a mano no escala.
           </h2>
           <p className="mt-5 text-base text-zinc-400 sm:text-lg">
             Buscar perfiles uno a uno, revisar bios y escribir DMs manualmente
@@ -1047,7 +1057,7 @@ function ProblemSolution() {
           </ul>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-8 sm:p-10">
             <h3 className="text-xl font-semibold tracking-tight text-zinc-100 sm:text-2xl">
-              FocuLead automatiza todo el proceso.
+              FocuLead hace el trabajo pesado. Tú cierras.
             </h3>
             <ul className="mt-8 space-y-4">
               {solutions.map((s) => (
@@ -1082,15 +1092,15 @@ function LeadDetailShowcase() {
         </Reveal>
         <Reveal delay={80}>
           <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
-            02 · Lead detail
+            02 · Cada oportunidad
           </span>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-            Contacta con contexto.
+            Llega con contexto. Cierra antes.
           </h2>
           <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-            Cada lead incluye contexto, scoring y un mensaje listo para
-            adaptar. Decide, anota, guarda follow-ups y mueve la oportunidad
-            sin salir del flujo.
+            Cada negocio llega con su bio, su puntuación y un mensaje listo
+            para adaptar. Anota, programa el seguimiento y llévalo del primer
+            mensaje a cliente sin salir de FocuLead.
           </p>
           <ul className="mt-8 divide-y divide-zinc-800/80 border-y border-zinc-800/80">
             {highlights.map((h) => (
@@ -1115,7 +1125,7 @@ function AnalyticsShowcase() {
   const kpis = [
     { v: "541", l: "leads totales" },
     { v: "90d", l: "rango activo" },
-    { v: "0.0%", l: "tasa respuesta" },
+    { v: "12%", l: "tasa respuesta" },
     { v: "8", l: "nichos rastreados" },
   ];
   return (
@@ -1130,9 +1140,8 @@ function AnalyticsShowcase() {
               Mide qué convierte.
             </h2>
             <p className="mt-5 text-base text-zinc-400 sm:text-lg">
-              Visualiza rendimiento, respuestas y conversiones desde un solo
-              lugar. Funnel, nichos y fuentes con el detalle que necesitas
-              para iterar.
+              Mira cuántos mensajes acaban en respuesta y cuántos en cliente,
+              por sector y por fuente. Así sabes dónde insistir y qué dejar.
             </p>
           </Reveal>
           <Reveal delay={80}>
@@ -1163,10 +1172,10 @@ function AnalyticsShowcase() {
 
 function ForWho() {
   const items = [
-    "Agencias de marketing que prospectan en Instagram",
-    "Freelances que buscan nuevos clientes",
+    "Agencias de marketing que quieren más clientes cada mes",
+    "Freelances y creativos que viven de conseguir proyectos",
     "Consultores y coaches que quieren llenar su agenda",
-    "Cualquiera que venda B2B y pierda horas buscando leads a mano",
+    "Cualquiera que venda a otros negocios y pierda horas buscándolos a mano",
   ];
   return (
     <section className="border-b border-zinc-800">
@@ -1213,7 +1222,7 @@ function Pricing() {
     {
       name: "Starter",
       price: "29 €",
-      features: ["2.000 créditos/mes (~500 leads)", "Hasta 3 usuarios", "Búsquedas programadas"],
+      features: ["2.000 créditos/mes (~500 negocios cualificados)", "Hasta 3 usuarios", "Búsquedas programadas"],
       cta: "Elegir Starter",
       popular: true,
       plan: "starter",
@@ -1221,7 +1230,7 @@ function Pricing() {
     {
       name: "Pro",
       price: "79 €",
-      features: ["6.000 créditos/mes (~1.500 leads)", "Hasta 10 usuarios", "Todo lo de Starter"],
+      features: ["6.000 créditos/mes (~1.500 negocios cualificados)", "Hasta 10 usuarios", "Todo lo de Starter"],
       cta: "Elegir Pro",
       plan: "pro",
     },
@@ -1229,7 +1238,7 @@ function Pricing() {
       name: "Business",
       price: "199 €",
       features: [
-        "15.000 créditos/mes (~3.800 leads)",
+        "15.000 créditos/mes (~3.800 negocios cualificados)",
         "Hasta 100 usuarios",
         "Para equipos y agencias",
       ],
@@ -1303,7 +1312,11 @@ function FAQ() {
       a: "Un crédito es un perfil analizado. Las búsquedas por ubicación y por hashtag —las que usa la mayoría— consumen 2 créditos por perfil; las de seguidores, 1. El mensaje va incluido: solo cuesta 1 crédito extra si pides regenerarlo.",
     },
     {
-      q: "¿De dónde vienen los leads?",
+      q: "¿En qué se diferencia de comprar una lista de contactos?",
+      a: "Una lista te da emails. FocuLead te da negocios que encajan con lo que vendes, confirmados con IA uno a uno, con el primer mensaje ya escrito y el seguimiento hasta que son clientes.",
+    },
+    {
+      q: "¿De dónde salen los negocios?",
       a: "De perfiles públicos de Instagram. FocuLead no accede a datos privados.",
     },
     {
@@ -1361,17 +1374,17 @@ function FinalCTA() {
           />
         </div>
         <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-5xl">
-          Empieza hoy.
+          Tu próximo cliente ya está ahí.
           <br />
           <span className="text-zinc-500">
-            Tu primera búsqueda es gratis.
+            La primera búsqueda es gratis.
           </span>
         </h2>
         <a
           href={LOGIN_URL}
           className="mt-10 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-primary/95 hover:shadow-[0_10px_30px_-10px_rgba(132,204,22,0.55)] active:translate-y-0 active:scale-100"
         >
-          Crear cuenta gratis →
+          Busca tus primeros clientes gratis →
         </a>
       </div>
     </section>
