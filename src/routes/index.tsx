@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import logoUrl from "@/assets/foculead-mark.png";
+import { LOGIN_URL, conOrigen, contarVisita, signupUrl, useOrigen } from "@/lib/origen";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -154,13 +155,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const LOGIN_URL = "https://app.foculead.com/login";
-
-function signupUrl(plan: string) {
-  const next = encodeURIComponent(`/?checkout=${plan}`);
-  return `${LOGIN_URL}?mode=signup&next=${next}`;
-}
-
 /* Scroll-triggered fade + translateY. GPU accelerated, IntersectionObserver. */
 function Reveal({
   children,
@@ -231,6 +225,7 @@ function CheckIcon() {
 }
 
 function Nav() {
+  const origen = useOrigen();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -262,7 +257,7 @@ function Nav() {
           <span>FocuLead</span>
         </a>
         <a
-          href={LOGIN_URL}
+          href={conOrigen(LOGIN_URL, origen)}
           className="rounded-md border border-zinc-800 px-3.5 py-1.5 text-sm text-zinc-300 transition-all duration-200 hover:border-zinc-700 hover:text-zinc-100 hover:-translate-y-px"
         >
           Iniciar sesión
@@ -273,6 +268,7 @@ function Nav() {
 }
 
 function Hero() {
+  const origen = useOrigen();
   return (
     <section className="relative overflow-hidden border-b border-zinc-800">
       <div className="mx-auto max-w-3xl px-6 pt-28 pb-32 text-center sm:pt-36 sm:pb-40 animate-fade-in">
@@ -299,7 +295,7 @@ function Hero() {
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <a
-            href={LOGIN_URL}
+            href={conOrigen(LOGIN_URL, origen)}
             className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset] transition-all duration-200 ease-out hover:bg-primary/95 hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_8px_24px_-8px_rgba(132,204,22,0.5)] active:translate-y-0 active:scale-100"
           >
             Empieza gratis →
@@ -1211,6 +1207,7 @@ type Plan = {
 };
 
 function Pricing() {
+  const origen = useOrigen();
   const plans: Plan[] = [
     {
       name: "Free",
@@ -1287,7 +1284,7 @@ function Pricing() {
                 ))}
               </ul>
               <a
-                href={p.plan ? signupUrl(p.plan) : LOGIN_URL}
+                href={p.plan ? signupUrl(p.plan, origen) : conOrigen(LOGIN_URL, origen)}
                 className={
                   "mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-out hover:-translate-y-0.5 " +
                   (p.popular
@@ -1360,6 +1357,7 @@ function FAQ() {
 }
 
 function FinalCTA() {
+  const origen = useOrigen();
   return (
     <section className="border-b border-zinc-800 bg-zinc-900/60">
       <div className="mx-auto max-w-4xl px-6 py-28 text-center sm:py-36">
@@ -1381,7 +1379,7 @@ function FinalCTA() {
           </span>
         </h2>
         <a
-          href={LOGIN_URL}
+          href={conOrigen(LOGIN_URL, origen)}
           className="mt-10 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-primary/95 hover:shadow-[0_10px_30px_-10px_rgba(132,204,22,0.55)] active:translate-y-0 active:scale-100"
         >
           Busca tus primeros clientes gratis →
@@ -1441,6 +1439,9 @@ function Footer() {
 }
 
 function Index() {
+  useEffect(() => {
+    contarVisita();
+  }, []);
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 antialiased">
       <Nav />
