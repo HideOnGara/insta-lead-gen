@@ -275,24 +275,24 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-zinc-800 bg-hero-bg">
-      <div className="mx-auto max-w-5xl px-5 pt-24 pb-16 text-center sm:px-6 sm:pt-32 sm:pb-20 animate-fade-in">
+      <div className="mx-auto max-w-4xl px-5 pt-16 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-14 animate-fade-in">
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-800 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-fg/60">
             <img src={logoUrl} alt="" width={14} height={14} className="h-3.5 w-3.5" />
             Para freelance y agencias
           </span>
         </div>
-        <h1 className="mx-auto mt-7 text-[44px] font-bold leading-[1.02] tracking-[-0.045em] text-hero-fg md:text-[72px] lg:text-[88px]">
+        <h1 className="mx-auto mt-6 text-[36px] font-bold leading-[1.04] tracking-[-0.04em] text-hero-fg md:text-[54px] lg:text-[62px]">
           <span className="block">Deja de buscar a quién escribir.</span>
           <span className="block text-hero-lime">Tu lista de posibles clientes, ya hecha.</span>
         </h1>
-        <p className="mx-auto mt-7 max-w-[640px] text-lg font-normal leading-[29px] text-hero-fg/60 sm:text-[20px]">
+        <p className="mx-auto mt-5 max-w-[600px] text-base font-normal leading-[27px] text-hero-fg/60 sm:text-[19px]">
           Dile cuál es tu cliente ideal y dónde está. FocuLead analiza perfiles de Instagram, puntúa del 0 al 100 cuánto encaja cada uno y te deja escrito el primer mensaje. Tú decides a quién escribir.
         </p>
-        <p className="mt-6 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-lime sm:text-xs">
+        <p className="mt-5 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-lime sm:text-xs">
           ÚLTIMA BÚSQUEDA · 312 PERFILES ANALIZADOS → 103 POSIBLES CLIENTES
         </p>
-        <div className="mx-auto mt-9 flex max-w-sm flex-col items-stretch gap-4 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-6">
+        <div className="mx-auto mt-7 flex max-w-sm flex-col items-stretch gap-4 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-6">
           <a
             href={LOGIN_URL}
             className="inline-flex w-full items-center justify-center rounded-md bg-hero-lime px-6 py-3 text-base font-bold text-hero-bg transition-opacity duration-200 hover:opacity-90 sm:w-auto"
@@ -300,8 +300,8 @@ function Hero() {
             Pruébalo gratis →
           </a>
           <a
-            href="#como-funciona"
-            className="text-sm text-hero-fg/60 transition-colors duration-200 hover:text-hero-fg"
+            href="#buscar-clientes"
+            className="inline-flex w-full items-center justify-center rounded-md border border-zinc-700 px-6 py-3 text-base font-semibold text-hero-fg transition-all duration-200 hover:border-zinc-500 sm:w-auto"
           >
             Ver demo ↓
           </a>
@@ -309,12 +309,6 @@ function Hero() {
         <p className="mt-5 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-fg/60">
           250 créditos gratis ≈ 60 posibles clientes · Sin tarjeta
         </p>
-        <div
-          aria-label="Captura del panel de resultados (próximamente)"
-          className="mx-auto mt-16 flex aspect-[16/10] w-full items-center justify-center rounded-xl border border-zinc-800 font-mono text-[11px] uppercase tracking-[0.07em] text-hero-fg/40"
-        >
-          Captura del panel · perfil, puntuación y mensaje
-        </div>
       </div>
     </section>
   );
@@ -418,7 +412,7 @@ function Outcomes() {
 
 function ProductSearchShowcase() {
   return (
-    <section className="border-b border-zinc-800 bg-zinc-950">
+    <section id="buscar-clientes" className="scroll-mt-16 border-b border-zinc-800 bg-zinc-950">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
         <Reveal className="order-2 lg:order-1">
           <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
