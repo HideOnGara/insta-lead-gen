@@ -274,46 +274,47 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-800">
-      <div className="mx-auto max-w-3xl px-6 pt-28 pb-32 text-center sm:pt-36 sm:pb-40 animate-fade-in">
+    <section className="relative overflow-hidden border-b border-zinc-800 bg-hero-bg">
+      <div className="mx-auto max-w-5xl px-5 pt-24 pb-16 text-center sm:px-6 sm:pt-32 sm:pb-20 animate-fade-in">
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300">
-            <img
-              src={logoUrl}
-              alt=""
-              width={14}
-              height={14}
-              className="h-3.5 w-3.5"
-            />
-            Clientes desde Instagram
+          <span className="inline-flex items-center gap-2 rounded-full border border-zinc-800 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-fg/60">
+            <img src={logoUrl} alt="" width={14} height={14} className="h-3.5 w-3.5" />
+            Para freelance y agencias
           </span>
         </div>
-        <h1 className="mx-auto mt-6 max-w-2xl text-4xl font-bold tracking-tight leading-[1.05] text-zinc-100 sm:text-5xl md:text-6xl">
-          <span className="block text-zinc-100">Tu próximo cliente</span>
-          <span className="block text-[#84cc16]">ya está en Instagram.</span>
+        <h1 className="mx-auto mt-7 text-[44px] font-bold leading-[1.02] tracking-[-0.045em] text-hero-fg md:text-[72px] lg:text-[88px]">
+          <span className="block">Deja de buscar a quién escribir.</span>
+          <span className="block text-hero-lime">Tu lista de posibles clientes, ya hecha.</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-base text-zinc-400 sm:text-lg">
-          Dinos a qué negocios vendes y en qué ciudad. FocuLead encuentra los
-          que encajan, confirma con IA que son negocios reales y te escribe el
-          primer mensaje. Tú te ocupas de cerrar.
+        <p className="mx-auto mt-7 max-w-[640px] text-lg font-normal leading-[29px] text-hero-fg/60 sm:text-[20px]">
+          Dile cuál es tu cliente ideal y dónde está. FocuLead analiza perfiles de Instagram, puntúa del 0 al 100 cuánto encaja cada uno y te deja escrito el primer mensaje. Tú decides a quién escribir.
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+        <p className="mt-6 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-lime sm:text-xs">
+          ÚLTIMA BÚSQUEDA · 312 PERFILES ANALIZADOS → 103 POSIBLES CLIENTES
+        </p>
+        <div className="mx-auto mt-9 flex max-w-sm flex-col items-stretch gap-4 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-6">
           <a
             href={LOGIN_URL}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset] transition-all duration-200 ease-out hover:bg-primary/95 hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_8px_24px_-8px_rgba(132,204,22,0.5)] active:translate-y-0 active:scale-100"
+            className="inline-flex w-full items-center justify-center rounded-md bg-hero-lime px-6 py-3 text-base font-bold text-hero-bg transition-opacity duration-200 hover:opacity-90 sm:w-auto"
           >
-            Empieza gratis →
+            Pruébalo gratis →
           </a>
           <a
             href="#como-funciona"
-            className="text-sm text-zinc-400 transition-colors duration-200 hover:text-zinc-100"
+            className="text-sm text-hero-fg/60 transition-colors duration-200 hover:text-hero-fg"
           >
             Ver demo ↓
           </a>
         </div>
-        <p className="mt-5 text-xs text-zinc-500">
-          Primera búsqueda gratis · No requiere tarjeta
+        <p className="mt-5 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-hero-fg/60">
+          250 créditos gratis ≈ 60 posibles clientes · Sin tarjeta
         </p>
+        <div
+          aria-label="Captura del panel de resultados (próximamente)"
+          className="mx-auto mt-16 flex aspect-[16/10] w-full items-center justify-center rounded-xl border border-zinc-800 font-mono text-[11px] uppercase tracking-[0.07em] text-hero-fg/40"
+        >
+          Captura del panel · perfil, puntuación y mensaje
+        </div>
       </div>
     </section>
   );
